@@ -1,0 +1,18 @@
+:root{
+/* Sakura — from the logo */
+--sakura-paper:#F9F0EC;--sakura-mist:#F3E4DE;
+--sakura-blossom-100:#F7D9DE;--sakura-blossom-300:#EFBCC5;--sakura-blossom-500:#E3909E;--sakura-blossom-700:#DD7F8C;
+--sakura-crimson-500:#AC2937;--sakura-crimson-700:#8A1F2B;
+--sakura-bark-300:#C48C72;--sakura-bark-500:#925644;--sakura-bark-700:#683D35;--sakura-bark-900:#412017;
+--sakura-lantern:#ECC483;--sakura-straw:#BDA177;
+/* Wine — from reference 1 */
+--wine-100:#EBD9DD;--wine-300:#A86A7A;--wine-500:#773344;--wine-700:#5A2433;
+--gold-100:#F4EFE6;--gold-300:#DCCBA6;--gold-500:#C2A878;
+--ash-500:#6E6560;--ash-700:#3D3735;--ash-800:#2A2624;--ash-900:#191716;
+/* Rust — from reference 2 */
+--rust-100:#F5DED6;--rust-300:#D9806A;--rust-500:#B7472A;--rust-700:#8F3620;
+--chrome-100:#EEF0F1;--chrome-300:#D9DCDE;--chrome-500:#BFC4C7;--chrome-700:#8E959B;
+--graphite-500:#6B737C;--graphite-700:#3E4650;--graphite-800:#2C323A;--graphite-900:#20252B;
+/* Status (shared) */
+--status-success:#4F7A4A;--status-warning:#B98A2E;--status-danger:#B3262F;--status-info:#3F6274;
+}

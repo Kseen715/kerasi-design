@@ -1,0 +1,42 @@
+<!-- @dsCard group="Brand" viewport="700x420" name="Favicon builder" subtitle="Make a subproject favicon; export SVG + PNG 16/32/48/180/512" -->
+<!doctype html><html><head><meta charset="utf-8"><title>Kerasi favicon builder</title><link rel="stylesheet" href="../styles.css"><link rel="icon" href="../assets/favicon/kerasi-favicon.svg">
+<style>body{padding:24px}.m{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-2)}
+.g{display:grid;grid-template-columns:260px 1fr;gap:32px}label{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+input[type=text]{height:42px;padding:0 12px;border:1px solid var(--line-strong);background:var(--bg-raised);font:600 20px var(--font-display);text-transform:uppercase;color:var(--fg-1);width:100%;border-radius:2px}
+.sw{display:flex;flex-wrap:wrap;gap:6px}.sw button{width:30px;height:30px;border:2px solid transparent;cursor:pointer;padding:0;clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px)}.sw button.on{box-shadow:inset 0 0 0 3px var(--bg),inset 0 0 0 5px var(--fg-1)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}.btns button{height:34px;padding:0 14px;font:500 13px var(--font-display);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:1px solid var(--fg-1);background:transparent;color:var(--fg-1)}.btns button.p{background:var(--accent);color:var(--accent-fg);border-color:var(--accent);clip-path:var(--clip-chamfer)}
+.tabs{display:flex;gap:2px;background:#dee1e6;padding:6px 8px 0;margin-top:20px}.tab{display:flex;align-items:center;gap:8px;height:32px;padding:0 12px;flex:1;min-width:0;font:13px system-ui;color:#333;border-radius:8px 8px 0 0;white-space:nowrap;overflow:hidden}.tab.on{background:#fff}</style></head><body>
+<div class="g"><div>
+<label><span class="m">Label · 1–2 chars</span><input type="text" id="lab" maxlength="2" value="H"></label>
+<label><span class="m">Project name</span><input type="text" id="nm" value="Hanami UI" style="font:15px var(--font-body);text-transform:none"></label>
+<div class="m" style="margin-bottom:6px">Tile colour</div><div class="sw" id="sw"></div>
+<div class="btns" style="margin-top:20px"><button class="p" id="dl">Download PNGs</button><button id="dsvg">SVG</button></div>
+</div><div>
+<div style="display:flex;gap:16px;align-items:flex-end" id="prev"></div>
+<div class="tabs" id="tabs"></div>
+<p style="font-size:13px;color:var(--fg-2);margin-top:14px">PNG export rasterises with Oswald, so letters match the brand exactly. The SVG uses live text with an Oswald/Arial Narrow fallback.</p>
+</div></div>
+<script>
+const C={crimson:['#AC2937','#FFF6F2'],bark:['#683D35','#F9F0EC'],wine:['#773344','#F4EFE6'],gold:['#C2A878','#191716'],night:['#191716','#ECC483'],rust:['#B7472A','#F8F9F9'],graphite:['#20252B','#E07A5A'],chrome:['#BFC4C7','#20252B']};
+const TILE='M4 0 H32 V28 L28 32 H0 V4 Z',CROWN='M0 4 L4 0 H32 V9.5 L27 7 L21.5 10.5 L16 7 L10.5 10.5 L5 7 L0 9.5 Z',SH='M0 9.5 L5 7 L10.5 10.5 L16 7 L21.5 10.5 L27 7 L32 9.5 L27 8.6 L21.5 12 L16 8.6 L10.5 12 L5 8.6 L0 11 Z';
+let col='crimson';
+const svg=(l,c)=>{const [bg,fg]=C[c];const t=l.toUpperCase().slice(0,2);return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path d="'+TILE+'" fill="'+bg+'"/><path d="'+CROWN+'" fill="#EFBCC5"/><path d="'+SH+'" fill="'+fg+'" opacity=".18"/>'+(t?'<text x="16" y="29" text-anchor="middle" fill="'+fg+'" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700" font-size="'+(t.length>1?15:19)+'">'+t+'</text>':'')+'</svg>';};
+const url=s=>'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);
+function render(){const l=lab.value,s=svg(l,col),u=url(s);
+ prev.innerHTML=[128,64,32,16].map(z=>'<img src="'+u+'" width="'+z+'" height="'+z+'">').join('');
+ tabs.innerHTML='<div class="tab"><img src="../assets/favicon/kerasi-favicon.svg" width="16">Kerasi</div><div class="tab on"><img src="'+u+'" width="16">'+(nm.value||'Project')+'</div><div class="tab"><img src="../assets/favicon/sub-bark.svg" width="16">Bark docs</div><div class="tab"><img src="../assets/favicon/sub-git.svg" width="16">git.kerasi</div>';
+ document.querySelector('link[rel=icon]').href=u;
+ sw.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.c===col));}
+sw.innerHTML=Object.entries(C).map(([k,[b]])=>'<button title="'+k+'" data-c="'+k+'" style="background:'+b+'"></button>').join('');
+sw.onclick=e=>{if(e.target.dataset.c){col=e.target.dataset.c;render();}};
+lab.oninput=nm.oninput=render;
+function save(blob,n){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=n;a.click();}
+const slug=()=>(nm.value||'project').toLowerCase().replace(/[^a-z0-9]+/g,'-');
+dsvg.onclick=()=>save(new Blob([svg(lab.value,col)],{type:'image/svg+xml'}),slug()+'-favicon.svg');
+dl.onclick=async()=>{await document.fonts.load('700 19px Oswald');const [bg,fg]=C[col];const t=lab.value.toUpperCase().slice(0,2);
+ for(const z of [16,32,48,180,512]){const c=document.createElement('canvas');c.width=c.height=z;const x=c.getContext('2d');x.scale(z/32,z/32);
+  x.fillStyle=bg;x.fill(new Path2D(TILE));x.fillStyle='#EFBCC5';x.fill(new Path2D(CROWN));x.globalAlpha=.18;x.fillStyle=fg;x.fill(new Path2D(SH));x.globalAlpha=1;
+  if(t){x.fillStyle=fg;x.textAlign='center';x.font='700 '+(t.length>1?15:19)+'px Oswald';x.fillText(t,16,29);}
+  await new Promise(r=>c.toBlob(b=>{save(b,slug()+'-'+z+'.png');r();}));}};
+document.fonts.load('700 19px Oswald').then(render);render();
+</script></body></html>

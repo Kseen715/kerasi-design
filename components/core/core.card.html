@@ -1,0 +1,22 @@
+<!-- @dsCard group="Components" viewport="700x570" name="Core" subtitle="Buttons, icon buttons, badges, tags, cards, logo" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:24px}.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.col{display:grid;gap:18px}.m{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);width:70px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const NS=window.KerasiDesignSystem_6c0512;
+const {Button,IconButton,Badge,Tag,Card,Logo,Icon,Favicon}=NS;
+function App(){return <div className="col">
+<div className="row"><span className="m">Button</span><Button iconRight="arrow-right">Start a project</Button><Button variant="secondary" icon="git-fork">Fork</Button><Button variant="ghost">Cancel</Button><Button variant="quiet" iconRight="arrow-up-right">Read more</Button></div>
+<div className="row"><span className="m">Sizes</span><Button size="sm">Small</Button><Button size="md">Medium</Button><Button size="lg">Large</Button><Button disabled>Disabled</Button></div>
+<div className="row"><span className="m">Icon btn</span><IconButton icon="search" label="Search"/><IconButton icon="bell" label="Alerts" variant="outline"/><IconButton icon="plus" label="New" variant="solid"/><IconButton icon="settings" label="Settings" active/></div>
+<div className="row"><span className="m">Badge</span><Badge>Draft</Badge><Badge tone="accent">v2.4</Badge><Badge tone="solid">New</Badge><Badge tone="success" dot>Passing</Badge><Badge tone="warning" dot>Queued</Badge><Badge tone="danger" dot>Failed</Badge></div>
+<div className="row"><span className="m">Tag</span><Tag selected onClick={()=>{}}>All</Tag><Tag onClick={()=>{}}>Design</Tag><Tag onClick={()=>{}}>Engineering</Tag><Tag onRemove={()=>{}}>typescript</Tag></div>
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:12}}><Card variant="plain" eyebrow="Plain" title="Roots">Hairline box.</Card><Card variant="cut" eyebrow="Cut" title="Bloom">Chamfered.</Card><Card variant="inverse" eyebrow="Inverse" title="Night">Ink block.</Card></div>
+<div className="row"><span className="m">Logo</span><Logo size={40} tagline="Studio"/><Logo theme="wine" size={32}/><Logo theme="rust" size={32}/><Logo mono size={32} wordmark={false}/></div>
+<div className="row"><span className="m">Favicon</span><Favicon size={32}/><Favicon size={16}/><Favicon ground="dark" size={32}/><Favicon variant="sub" label="H" size={32}/><Favicon variant="sub" label="B" color="bark" size={32}/><Favicon variant="sub" label="L" color="night" size={32}/><Favicon variant="sub" label="G" color="graphite" size={32}/><Favicon variant="sub" label="W" color="wine" size={16}/></div>
+</div>}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

@@ -1,0 +1,20 @@
+/* Semantic theme tokens. Default (:root) = Sakura light. Switch with data-theme on <html> or any container. */
+:root,[data-theme="sakura"]{
+--bg:#F9F0EC;--bg-raised:#FFFAF8;--bg-sunken:#F3E4DE;--fg-1:#2A1712;--fg-2:#5E4038;--fg-3:#8C6E64;--line:#E8D6CF;--line-strong:#C9AFA5;--accent:#AC2937;--accent-hover:#8A1F2B;--accent-fg:#FFF6F2;--accent-soft:#F7D9DE;--accent-ink:#AC2937;--accent-2:#925644;--accent-2-fg:#FFF6F2;--accent-3:#EFBCC5;--highlight:#ECC483;--chart-1:#AC2937;--chart-2:#E3909E;--chart-3:#925644;--chart-4:#ECC483;--chart-5:#412017;
+}
+[data-theme="sakura-dark"]{
+--bg:#1C1210;--bg-raised:#261916;--bg-sunken:#140C0B;--fg-1:#F9F0EC;--fg-2:#D6BDB4;--fg-3:#9A7F76;--line:#3A2622;--line-strong:#5A3D36;--accent:#EFBCC5;--accent-hover:#F7D9DE;--accent-fg:#2A1712;--accent-soft:#3A1E22;--accent-ink:#EFBCC5;--accent-2:#C48C72;--accent-2-fg:#1C1210;--accent-3:#AC2937;--highlight:#ECC483;--chart-1:#EFBCC5;--chart-2:#AC2937;--chart-3:#C48C72;--chart-4:#ECC483;--chart-5:#F9F0EC;
+}
+[data-theme="wine"]{
+--bg:#F4EFE6;--bg-raised:#FBF8F2;--bg-sunken:#EAE2D3;--fg-1:#191716;--fg-2:#4A4240;--fg-3:#7A706B;--line:#DDD3C2;--line-strong:#BBAA8E;--accent:#773344;--accent-hover:#5A2433;--accent-fg:#F4EFE6;--accent-soft:#EBD9DD;--accent-ink:#773344;--accent-2:#C2A878;--accent-2-fg:#191716;--accent-3:#191716;--highlight:#C2A878;--chart-1:#773344;--chart-2:#C2A878;--chart-3:#191716;--chart-4:#A86A7A;--chart-5:#DCCBA6;
+}
+[data-theme="wine-dark"]{
+--bg:#191716;--bg-raised:#221F1D;--bg-sunken:#121110;--fg-1:#F4EFE6;--fg-2:#CFC5B4;--fg-3:#8E857C;--line:#332E2B;--line-strong:#4E4641;--accent:#C2A878;--accent-hover:#DCCBA6;--accent-fg:#191716;--accent-soft:#2F2820;--accent-ink:#C2A878;--accent-2:#773344;--accent-2-fg:#F4EFE6;--accent-3:#A86A7A;--highlight:#C2A878;--chart-1:#C2A878;--chart-2:#A86A7A;--chart-3:#773344;--chart-4:#F4EFE6;--chart-5:#6E6560;
+}
+[data-theme="rust"]{
+--bg:#EEF0F1;--bg-raised:#F8F9F9;--bg-sunken:#E1E4E6;--fg-1:#20252B;--fg-2:#46505A;--fg-3:#6F7882;--line:#D3D7DA;--line-strong:#A9AFB4;--accent:#B7472A;--accent-hover:#8F3620;--accent-fg:#F8F9F9;--accent-soft:#F5DED6;--accent-ink:#A03D23;--accent-2:#20252B;--accent-2-fg:#EEF0F1;--accent-3:#BFC4C7;--highlight:#B7472A;--chart-1:#B7472A;--chart-2:#20252B;--chart-3:#8E959B;--chart-4:#D9806A;--chart-5:#4B535C;
+}
+[data-theme="rust-dark"]{
+--bg:#20252B;--bg-raised:#282E35;--bg-sunken:#1A1E23;--fg-1:#EEF0F1;--fg-2:#BFC4C7;--fg-3:#858D95;--line:#353C44;--line-strong:#4E5761;--accent:#B7472A;--accent-hover:#C9532F;--accent-fg:#F8F9F9;--accent-soft:#3A2A26;--accent-ink:#E07A5A;--accent-2:#BFC4C7;--accent-2-fg:#20252B;--accent-3:#6B737C;--highlight:#E07A5A;--chart-1:#E07A5A;--chart-2:#BFC4C7;--chart-3:#B7472A;--chart-4:#858D95;--chart-5:#EEF0F1;
+}
+:root{--surface-page:var(--bg);--surface-card:var(--bg-raised);--surface-well:var(--bg-sunken);--text-body:var(--fg-1);--text-muted:var(--fg-2);--text-faint:var(--fg-3);--border-default:var(--line);--border-strong:var(--line-strong);--focus-ring:var(--accent);}

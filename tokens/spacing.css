@@ -1,0 +1,10 @@
+:root{
+--space-0:0;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;
+--radius-0:0;--radius-1:2px;--radius-round:999px;
+--chamfer:10px;--chamfer-lg:18px;
+--clip-chamfer:polygon(var(--chamfer) 0,100% 0,100% calc(100% - var(--chamfer)),calc(100% - var(--chamfer)) 100%,0 100%,0 var(--chamfer));/* @kind other */
+--border-1:1px;--border-2:2px;
+--shadow-0:none;--shadow-1:0 1px 0 var(--line);--shadow-pop:0 18px 40px -18px rgba(25,23,22,.35);
+--ease-out:cubic-bezier(.2,.7,.1,1);/* @kind other */--ease-in-out:cubic-bezier(.6,0,.2,1);/* @kind other */--dur-1:120ms;/* @kind other */--dur-2:220ms;/* @kind other */--dur-3:420ms;/* @kind other */
+--container:1240px;--gutter:24px;
+}

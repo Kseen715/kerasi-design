@@ -1,0 +1,11 @@
+:root{
+--font-display:'Oswald','Arial Narrow',sans-serif;
+--font-body:'Manrope','Helvetica Neue',sans-serif;
+--font-mono:'JetBrains Mono',ui-monospace,monospace;
+--fs-display-xl:128px;--fs-display-l:88px;--fs-display-m:64px;
+--fs-h1:48px;--fs-h2:36px;--fs-h3:26px;--fs-h4:20px;
+--fs-body-l:18px;--fs-body:16px;--fs-small:14px;--fs-caption:12px;
+--lh-display:0.9;/* @kind other */--lh-heading:1.05;/* @kind other */--lh-body:1.6;/* @kind other */--lh-tight:1.3;/* @kind other */
+--fw-display:600;/* @kind font */--fw-heading:500;/* @kind font */--fw-body:400;/* @kind font */--fw-strong:600;/* @kind font */
+--tracking-display:-0.01em;--tracking-overline:0.14em;
+}
