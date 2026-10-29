@@ -1,0 +1,49 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check gallery manifest
+        run: |
+          # The gallery at index.html is driven by _ds_manifest.json; fail
+          # early if it is broken or points at pages that are not in the repo.
+          python3 - <<'EOF'
+          import json, os, sys
+          m = json.load(open('_ds_manifest.json'))
+          paths = [t['entryPath'] for t in m.get('templates', [])]
+          paths += [s['previewPath'] for s in m.get('startingPoints', [])]
+          paths += [c['path'] for c in m.get('cards', [])]
+          missing = [p for p in paths if not os.path.isfile(p)]
+          if missing:
+              sys.exit('Missing pages listed in _ds_manifest.json: ' + ', '.join(missing))
+          print(f'{len(set(paths))} pages OK')
+          EOF
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

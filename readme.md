@@ -18,6 +18,7 @@
 - `components/` — React primitives (see below), one `@dsCard` per folder
 - `ui_kits/kerasi/` — web UI kit: `index.html` (click-through), per-screen starting points `home/blog/git/dashboard/diagrams/gallery.html`, `themes.html` matrix
 - `thumbnail.html` — project tile · `SKILL.md` — agent skill entry
+- `index.html` — interactive gallery of every template, screen and card (reads `_ds_manifest.json`); published to GitHub Pages by `.github/workflows/pages.yml`
 
 ## Components
 - core: **Favicon**, **Button**, **IconButton**, **Icon**, **Badge**, **Tag**, **Card**, **Logo**, **Mark**

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kerasi Design</title>
+<meta name="description" content="Kerasi design system — templates, screens, components and foundations, live.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon/kerasi-favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+*{box-sizing:border-box}
+body{min-height:100vh}
+a{color:var(--accent-ink)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1720px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.over{font:500 11px/1.4 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.disp{margin:0;font-family:var(--font-display);font-weight:600;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;text-wrap:balance}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg-1)}
+.brand img{width:34px;height:34px}
+.brand b{font:600 20px/1 var(--font-display);letter-spacing:.06em;text-transform:uppercase}
+.brand span{font:500 10px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.nav{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav a{flex:none;padding:0 12px;line-height:64px;text-decoration:none;color:var(--fg-2);font:500 13px var(--font-display);letter-spacing:.06em;text-transform:uppercase;transition:color 120ms var(--ease-out)}
+.nav a:hover{color:var(--accent-ink)}
+@media (max-width:720px){.nav{visibility:hidden}}
+
+/* controls */
+.seg{display:flex;flex-wrap:wrap;gap:4px}
+.chip{min-height:32px;padding:0 12px;border:1px solid var(--line-strong);background:transparent;color:var(--fg-2);font:500 12px var(--font-display);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background 120ms var(--ease-out),color 120ms var(--ease-out)}
+.chip:hover{border-color:var(--fg-1);color:var(--fg-1)}
+.chip[aria-pressed="true"]{background:var(--fg-1);border-color:var(--fg-1);color:var(--bg)}
+.swatch{display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px;border:1px solid var(--line-strong)}
+select.chip{appearance:none;padding-right:28px;background:linear-gradient(45deg,transparent 50%,currentColor 50%) right 14px center/5px 5px no-repeat,linear-gradient(-45deg,transparent 50%,currentColor 50%) right 10px center/5px 5px no-repeat}
+select.chip option{color:var(--fg-1);background:var(--bg)}
+
+/* hero */
+.hero{padding:clamp(48px,8vw,112px) 0 clamp(32px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:end}
+.hero h1{font-size:clamp(56px,10vw,152px)}
+.hero p{max-width:62ch;margin:24px 0 0;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--fg-2)}
+.stats{display:grid;grid-template-columns:repeat(2,auto);gap:16px 40px}
+.stats b{display:block;font:600 56px/1 var(--font-display);color:var(--accent-ink)}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,auto);gap:16px 24px}.stats b{font-size:40px}}
+
+/* sections */
+.sec{padding:56px 0 24px;border-top:2px solid var(--fg-1);scroll-margin-top:64px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(40px,5.5vw,80px);margin-top:12px}
+.grid{display:grid;gap:28px 24px;grid-template-columns:repeat(auto-fill,minmax(min(100%,var(--min,340px)),1fr));align-items:start}
+.grid.wide{--min:560px}
+.grid.ultra{--min:100%}
+
+/* cards */
+.card{display:block;width:100%;padding:0;border:0;background:none;text-align:left;text-decoration:none;cursor:pointer;color:var(--fg-1)}
+.thumb{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--bg-sunken);transition:transform 220ms var(--ease-out),box-shadow 220ms var(--ease-out)}
+.thumb::after{content:"";position:absolute;inset:0}
+.thumb iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;transform:scale(var(--s,.5));pointer-events:none}
+.thumb .ph{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0 7px,var(--line) 7px 8px)}
+.card:hover .thumb,.card:focus-visible .thumb{transform:translateY(-2px);box-shadow:var(--shadow-pop)}
+.meta{display:flex;gap:12px;align-items:baseline;justify-content:space-between;margin-top:12px}
+.meta b{font:500 18px/1.2 var(--font-display);letter-spacing:.03em;text-transform:uppercase}
+.meta .arrow{color:var(--fg-3);transition:transform 220ms var(--ease-out),color 120ms var(--ease-out)}
+.card:hover .arrow{transform:translateX(3px);color:var(--accent-ink)}
+.card p{margin:4px 0 0;font-size:14px;line-height:1.5;color:var(--fg-2);max-width:62ch}
+.card code{display:block;margin-top:6px;font:11px var(--font-mono);color:var(--fg-3);overflow-wrap:anywhere}
+
+footer{padding:48px 0 64px;border-top:1px solid var(--line);margin-top:56px;color:var(--fg-3);font-size:14px}
+
+/* viewer */
+.viewer{position:fixed;inset:0;z-index:50;display:none;flex-direction:column;background:var(--bg-sunken)}
+.viewer.open{display:flex}
+.vbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:10px clamp(12px,2vw,24px);background:var(--bg);border-bottom:1px solid var(--line)}
+.vtitle{flex:1;min-width:180px}
+.vtitle b{display:block;font:500 18px/1.2 var(--font-display);letter-spacing:.03em;text-transform:uppercase}
+.vtitle code{font:11px var(--font-mono);color:var(--fg-3)}
+.vgroup{display:flex;align-items:center;gap:8px}
+.ibtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:36px;min-height:36px;padding:0 10px;border:1px solid var(--line-strong);background:transparent;color:var(--fg-1);font:500 12px var(--font-display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.ibtn:hover{background:var(--fg-1);color:var(--bg);border-color:var(--fg-1)}
+.ibtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:square}
+.stage{position:relative;flex:1;overflow:hidden}
+.stage .frame{position:absolute;left:50%;top:0;transform-origin:50% 0;background:var(--bg);box-shadow:0 0 0 1px var(--line)}
+.stage iframe{display:block;width:100%;height:100%;border:0}
+.vsize{font:11px var(--font-mono);color:var(--fg-3);white-space:nowrap}
+@media (max-width:640px){.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#/"><img src="assets/logo/kerasi-mark.svg" alt=""><div><b>Kerasi</b><br><span>Design system</span></div></a>
+  <nav class="nav" id="nav" aria-label="Sections"></nav>
+  <label class="vgroup"><span class="over hide-sm">Theme</span><select class="chip" id="theme" aria-label="Theme"></select></label>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="over" style="color:var(--accent-ink)">00 — Κεράσι · Cherry</div>
+      <h1 class="disp" style="margin-top:16px">Grown slowly. Cut sharp.</h1>
+      <p>Every template, screen, component and foundation card in the Kerasi system, running live. Pick a theme above — it carries into every preview. Open any card to resize it, switch tweaks, or read its source.</p>
+    </div>
+    <div class="stats" id="stats"></div>
+  </section>
+  <div id="sections"></div>
+</main>
+<footer><div class="wrap">Kerasi design system · <a id="repo" href="#">Source on GitHub</a></div></footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vname">
+  <div class="vbar">
+    <a class="ibtn" href="#/" aria-label="Back to overview"><svg viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></svg></a>
+    <div class="vtitle"><b id="vname"></b><code id="vpath"></code></div>
+    <div class="vgroup" id="vtweaks"></div>
+    <div class="vgroup"><div class="seg" id="vsizes" role="group" aria-label="Viewport"></div><span class="vsize hide-sm" id="vscale"></span></div>
+    <div class="vgroup">
+      <button class="ibtn" id="vprev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+      <button class="ibtn" id="vnext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+      <a class="ibtn" id="vsrc" target="_blank" rel="noopener">Source</a>
+      <a class="ibtn" id="vopen" target="_blank" rel="noopener" aria-label="Open in new tab"><svg viewBox="0 0 24 24"><path d="M14 4h6v6m0-6-9 9M18 14v6H4V6h6"/></svg></a>
+    </div>
+  </div>
+  <div class="stage" id="stage"><div class="frame" id="vframe"></div></div>
+</div>
+
+<script>
+(() => {
+'use strict';
+const REPO = 'https://github.com/Kseen715/kerasi-design';
+const THEMES = [['sakura','Sakura','#AC2937'],['sakura-dark','Sakura · Dark','#AC2937'],['wine','Wine','#773344'],['wine-dark','Wine · Dark','#773344'],['rust','Rust','#B7472A'],['rust-dark','Rust · Dark','#B7472A']];
+const GROUPS = [
+  ['templates','Templates','Ultrawide 21:9 layouts. Tweak theme, rails and focus-zone guides.','ultra'],
+  ['Kerasi Web','Screens','The web UI kit — full pages, device previews and the theme matrix.','wide'],
+  ['Components','Components','React primitives, every variant on one card.',''],
+  ['Brand','Brand','Mark, variants, favicons and the favicon builder.',''],
+  ['Colors','Colors','Three seasonal families, each light and dark.',''],
+  ['Type','Type','Oswald for monuments, Manrope for reading, JetBrains Mono for data.',''],
+  ['Spacing','Spacing & shape','4px base, square corners, one chamfer.',''],
+];
+const SIZES = {
+  template: [['2560 × 1080',2560,1080],['3440 × 1440',3440,1440],['Fit',0,0]],
+  page: [['Fit',0,0],['390',390,0],['820',820,0],['1440',1440,0],['1920',1920,0]],
+};
+const $ = id => document.getElementById(id);
+const store = {get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
+
+let theme = new URLSearchParams(location.search).get('theme') || store.get('kerasi-gallery-theme') || 'sakura';
+if (!THEMES.some(t => t[0] === theme)) theme = 'sakura';
+let items = [], byPath = new Map();
+
+// How a page takes the theme: templates through the dc runtime props, the
+// React kit through ?theme= (it reads it once on boot), static cards through
+// data-theme on their <html>.
+const kindOf = path => path.startsWith('templates/') ? 'template' : path.startsWith('ui_kits/') && !path.endsWith('/themes.html') ? 'kit' : 'static';
+const srcFor = item => item.kind === 'kit' ? item.path + '?theme=' + encodeURIComponent(theme) : item.path;
+
+function el(tag, attrs, ...kids) {
+  const n = document.createElement(tag);
+  for (const k in attrs || {}) {
+    if (k === 'class') n.className = attrs[k];
+    else if (k === 'text') n.textContent = attrs[k];
+    else if (k.startsWith('on')) n.addEventListener(k.slice(2), attrs[k]);
+    else n.setAttribute(k, attrs[k]);
+  }
+  for (const c of kids) if (c != null) n.append(c);
+  return n;
+}
+
+// Waits for the dc runtime inside a template frame to mount its root.
+function whenDc(win, cb, tries = 100) {
+  const root = win.__dcRootName && win.__dcRootName();
+  const entry = root && win.__dcRegistry && win.__dcRegistry[root];
+  if (entry && entry.propsMeta) return cb(win, root, entry);
+  if (tries > 0) setTimeout(() => whenDc(win, cb, tries - 1), 100);
+}
+
+function applyTheme(iframe, item, tweaks) {
+  let win;
+  try { win = iframe.contentWindow; win.document; } catch { return; }
+  if (!win) return;
+  if (item.kind === 'template') whenDc(win, (w, root) => w.__dcSetProps(root, { ...(tweaks || {}), theme }));
+  else if (item.kind === 'static') win.document.documentElement.setAttribute('data-theme', theme);
+}
+
+function makeFrame(item, tweaks, title) {
+  const f = el('iframe', { src: srcFor(item), title: title || item.name });
+  f.addEventListener('load', () => applyTheme(f, item, tweaks));
+  return f;
+}
+
+/* ---------- overview ---------- */
+
+const thumbs = new Set();
+const io = new IntersectionObserver(entries => {
+  for (const e of entries) {
+    const box = e.target, item = byPath.get(box.dataset.path);
+    const f = box.querySelector('iframe');
+    if (e.isIntersecting && !f) {
+      const nf = makeFrame(item, null, item.name + ' preview');
+      nf.tabIndex = -1; nf.setAttribute('aria-hidden', 'true');
+      nf.style.width = item.w + 'px'; nf.style.height = item.h + 'px';
+      box.append(nf);
+    } else if (!e.isIntersecting && f) f.remove();
+  }
+}, { rootMargin: '300px 0px' });
+const ro = new ResizeObserver(entries => {
+  for (const e of entries) e.target.style.setProperty('--s', e.contentRect.width / byPath.get(e.target.dataset.path).w);
+});
+
+function card(item) {
+  const box = el('div', { class: 'thumb', 'data-path': item.path, style: 'aspect-ratio:' + item.w + '/' + item.h }, el('div', { class: 'ph' }));
+  thumbs.add(box); io.observe(box); ro.observe(box);
+  return el('a', { class: 'card', href: '#/view/' + item.path },
+    box,
+    el('div', { class: 'meta' }, el('b', { text: item.name }), el('span', { class: 'arrow', 'aria-hidden': 'true', text: '→' })),
+    item.subtitle ? el('p', { text: item.subtitle }) : null,
+    el('code', { text: item.path }));
+}
+
+function render(manifest) {
+  const seen = new Set();
+  const add = (path, name, subtitle, group, viewport) => {
+    if (seen.has(path)) return;
+    seen.add(path);
+    const [w, h] = (viewport || '1440x900').split('x').map(Number);
+    const item = { path, name, subtitle, group, w, h, kind: kindOf(path) };
+    items.push(item); byPath.set(path, item);
+  };
+  for (const t of manifest.templates || []) add(t.entryPath, t.name, t.description, 'templates', '2560x1080');
+  for (const s of manifest.startingPoints || []) if (s.kind === 'screen') add(s.previewPath, s.name[0].toUpperCase() + s.name.slice(1), s.subtitle, s.section, s.viewport);
+  for (const c of manifest.cards || []) add(c.path, c.name, c.subtitle, c.group, c.viewport);
+
+  const known = new Set(GROUPS.map(g => g[0]));
+  const groups = GROUPS.concat([...new Set(items.map(i => i.group))].filter(g => !known.has(g)).map(g => [g, g, '', '']));
+  const ordered = [];
+  let n = 0;
+  for (const [key, label, blurb, size] of groups) {
+    const list = items.filter(i => i.group === key);
+    if (!list.length) continue;
+    ordered.push(...list);
+    const id = 's-' + key.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const idx = String(++n).padStart(2, '0');
+    $('nav').append(el('a', { href: '#' + id, text: label }));
+    $('sections').append(el('section', { class: 'sec', id },
+      el('div', { class: 'sec-head' },
+        el('div', null, el('div', { class: 'over', text: idx + ' — ' + list.length + (list.length === 1 ? ' item' : ' items') }), el('h2', { class: 'disp', text: label })),
+        blurb ? el('p', { style: 'margin:0;max-width:44ch;color:var(--fg-2)', text: blurb }) : null),
+      el('div', { class: 'grid ' + size }, ...list.map(card))));
+  }
+  items = ordered;
+  const count = k => items.filter(i => i.group === k).length;
+  for (const [v, l] of [[count('templates'), 'Templates'], [count('Kerasi Web'), 'Screens'], [(manifest.components || []).length, 'Components'], [THEMES.length, 'Themes']])
+    $('stats').append(el('div', null, el('b', { text: v }), el('span', { class: 'over', text: l })));
+}
+
+/* ---------- theme ---------- */
+
+function setTheme(t) {
+  theme = t;
+  document.documentElement.setAttribute('data-theme', t);
+  store.set('kerasi-gallery-theme', t);
+  $('theme').value = t;
+  for (const box of thumbs) {
+    const f = box.querySelector('iframe'), item = byPath.get(box.dataset.path);
+    if (!f) continue;
+    if (item.kind === 'kit') f.src = srcFor(item); else applyTheme(f, item);
+  }
+  if (current) {
+    const f = $('vframe').querySelector('iframe');
+    if (current.kind === 'kit') f.src = srcFor(current); else applyTheme(f, current, tweaks);
+  }
+}
+
+/* ---------- viewer ---------- */
+
+let current = null, size = null, tweaks = {};
+
+function layout() {
+  if (!current) return;
+  const stage = $('stage'), frame = $('vframe');
+  const pad = 24, aw = stage.clientWidth - pad * 2, ah = stage.clientHeight - pad * 2;
+  let w, h, s;
+  if (!size[1]) { w = stage.clientWidth; h = stage.clientHeight; s = 1; frame.style.top = '0'; }
+  else {
+    w = size[1];
+    s = Math.min(1, aw / w, size[2] ? ah / size[2] : 1);
+    h = size[2] || ah / s;
+    frame.style.top = pad + 'px';
+  }
+  frame.style.width = w + 'px'; frame.style.height = h + 'px';
+  frame.style.transform = 'translateX(-50%) scale(' + s + ')';
+  $('vscale').textContent = Math.round(w) + ' × ' + Math.round(h) + ' · ' + Math.round(s * 100) + '%';
+}
+
+function sizeButtons() {
+  const box = $('vsizes'); box.replaceChildren();
+  for (const sz of SIZES[current.kind === 'template' ? 'template' : 'page']) {
+    box.append(el('button', { class: 'chip', 'aria-pressed': String(sz === size), text: sz[0], onclick: () => { size = sz; sizeButtons(); layout(); } }));
+  }
+}
+
+// Builds controls from the template's own prop metadata (data-props), so new
+// tweaks in a template show up here without touching the gallery.
+function tweakControls(win, root, entry) {
+  const box = $('vtweaks'); box.replaceChildren();
+  for (const [k, meta] of Object.entries(entry.propsMeta)) {
+    if (k === 'theme' || k.startsWith('$')) continue;
+    if (tweaks[k] === undefined) tweaks[k] = meta.default;
+    if (meta.editor === 'boolean') {
+      const b = el('button', { class: 'chip', 'aria-pressed': String(!!tweaks[k]), text: k });
+      b.onclick = () => { tweaks[k] = !tweaks[k]; b.setAttribute('aria-pressed', String(tweaks[k])); win.__dcSetProps(root, { ...tweaks, theme }); };
+      box.append(b);
+    } else if (meta.editor === 'enum') {
+      const s = el('select', { class: 'chip', 'aria-label': k }, ...meta.options.map(o => el('option', { value: o, text: o })));
+      s.value = tweaks[k];
+      s.onchange = () => { tweaks[k] = s.value; win.__dcSetProps(root, { ...tweaks, theme }); };
+      box.append(s);
+    }
+  }
+}
+
+function openViewer(item) {
+  const same = current === item;
+  current = item;
+  if (!same) {
+    tweaks = {};
+    size = SIZES[item.kind === 'template' ? 'template' : 'page'][0];
+    if (item.kind !== 'template' && item.w < 1000) size = ['Fit', 0, 0];
+    $('vtweaks').replaceChildren();
+    $('vname').textContent = item.name;
+    $('vpath').textContent = item.path;
+    $('vsrc').href = REPO + '/blob/main/' + item.path;
+    $('vopen').href = srcFor(item);
+    const f = makeFrame(item, tweaks);
+    if (item.kind === 'template') f.addEventListener('load', () => whenDc(f.contentWindow, tweakControls));
+    $('vframe').replaceChildren(f);
+    sizeButtons();
+  }
+  $('viewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  layout();
+  $('vname').closest('.vbar').querySelector('a').focus({ preventScroll: true });
+}
+
+function closeViewer() {
+  if (!current) return;
+  const path = current.path;
+  current = null;
+  $('viewer').classList.remove('open');
+  $('vframe').replaceChildren();
+  document.body.style.overflow = '';
+  const back = document.querySelector('.card[href="#/view/' + CSS.escape(path) + '"]');
+  if (back) back.focus({ preventScroll: false });
+}
+
+function step(d) {
+  if (!current) return;
+  const i = items.indexOf(current);
+  location.hash = '#/view/' + items[(i + d + items.length) % items.length].path;
+}
+
+function route() {
+  const m = /^#\/view\/(.+)$/.exec(location.hash);
+  // Only paths listed in the manifest are ever loaded into the viewer.
+  const item = m && byPath.get(decodeURIComponent(m[1]));
+  if (item) return openViewer(item);
+  closeViewer();
+  const target = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+  if (target) target.scrollIntoView();
+}
+
+/* ---------- boot ---------- */
+
+$('repo').href = REPO;
+for (const [v, l] of THEMES) $('theme').append(el('option', { value: v, text: l }));
+$('theme').onchange = e => setTheme(e.target.value);
+document.documentElement.setAttribute('data-theme', theme);
+$('theme').value = theme;
+$('vprev').onclick = () => step(-1);
+$('vnext').onclick = () => step(1);
+addEventListener('resize', layout);
+addEventListener('hashchange', route);
+addEventListener('keydown', e => {
+  if (!current || e.target.closest('select')) return;
+  if (e.key === 'Escape') location.hash = '#/';
+  else if (e.key === 'ArrowLeft') step(-1);
+  else if (e.key === 'ArrowRight') step(1);
+});
+
+fetch('_ds_manifest.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(m => { render(m); route(); })
+  .catch(err => $('sections').append(el('p', { text: 'Could not load _ds_manifest.json (' + err.message + '). Serve this folder over HTTP.' })));
+})();
+</script>
+</body>
+</html>

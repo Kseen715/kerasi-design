@@ -17,7 +17,7 @@
 <div class="sec"><h2>Tablet · 820</h2><div class="row" id="tablet"></div></div>
 <script>
 const P=[["home","Home"],["blog","Journal"],["git","Code"],["dashboard","Dashboard"],["diagrams","Diagrams"],["gallery","Gallery"],["elements","Elements"]];const T=['sakura','sakura-dark','wine','wine-dark','rust','rust-dark'];
-let theme=localStorage.getItem('kerasi-devices-theme')||'sakura';
+let theme=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kerasi-devices-theme')||'sakura';
 function src(r){return 'index.html?route='+r+'&theme='+theme;}
 function build(){document.documentElement.setAttribute('data-theme',theme);
  for(const k of ['phone','tablet'])document.getElementById(k).innerHTML=P.map(([r,l])=>'<div class="dev '+k+'"><div class="frame"><div><iframe loading="lazy" title="'+l+' '+k+'" src="'+src(r)+'"></iframe></div></div><div class="cap"><b>'+l+'</b><a class="lbl" href="'+src(r)+'" target="_blank">open</a></div></div>').join('');
