@@ -44,6 +44,17 @@ export function highlight(code,language){
   const lines=[[]];for(const [t,v] of toks){const parts=v.split('\n');parts.forEach((p,k)=>{if(k)lines.push([]);if(p)lines[lines.length-1].push([t,p]);});}
   return lines;}
 const STY={comment:{color:'var(--syn-comment)',fontStyle:'italic',fontWeight:500},keyword:{color:'var(--syn-keyword)',fontWeight:700},string:{color:'var(--syn-string)'},number:{color:'var(--syn-number)'},function:{color:'var(--syn-function)',fontWeight:700},type:{color:'var(--syn-type)',fontWeight:600},property:{color:'var(--syn-property)'},operator:{color:'var(--syn-operator)'},punct:{color:'var(--syn-punct)'},tag:{color:'var(--syn-tag)',fontWeight:700},attr:{color:'var(--syn-attr)'},plain:null};
+// Consecutive lines of one kind share a single background block: per-line
+// fills leave sub-pixel seams at fractional line heights (13px × 1.7).
+const RUN={hl:{background:'var(--syn-line-hl)',boxShadow:'inset 2px 0 0 var(--syn-keyword)'},added:{background:'var(--syn-added)'},removed:{background:'var(--syn-removed)'}};
+function runs(rows){
+  const out=[];
+  for(const [kind,row] of rows){
+    const last=out[out.length-1];
+    if(kind&&last&&last.kind===kind)last.rows.push(row);else out.push({kind,rows:[row]});
+  }
+  return out.map((r,i)=>r.kind?<div key={'r'+i} style={RUN[r.kind]}>{r.rows}</div>:r.rows);
+}
 export function CodeBlock({code='',language='text',title,lineNumbers=true,highlightLines=[],copy=true,theme,maxHeight,wrap,style}){
   const lang=ALIAS[language]||language;
   const [copied,setCopied]=React.useState(false);
@@ -61,12 +72,13 @@ export function CodeBlock({code='',language='text',title,lineNumbers=true,highli
       {copy&&<button onClick={doCopy} aria-label="Copy code" title="Copy" style={{display:'inline-flex',alignItems:'center',justifyContent:'center',width:28,height:28,background:'transparent',border:'none',color:copied?'var(--syn-string)':'var(--syn-comment)',cursor:'pointer'}}><Icon name={copied?'check':'copy'} size={14}/></button>}
     </div>}
     <pre style={{margin:0,padding:'12px 0',overflow:'auto',maxHeight,whiteSpace:wrap?'pre-wrap':'pre'}}><code style={{display:'block',minWidth:'max-content'}}>
-      {lines.map((ln,i)=>{const raw=isDiff?ln[0][1]:'';const d=isDiff?(raw.startsWith('+')?'added':raw.startsWith('-')?'removed':raw.startsWith('@@')?'meta':null):null;
-        return <div key={i} style={{display:'flex',padding:'0 16px 0 0',background:hl.has(i+1)?'var(--syn-line-hl)':d==='added'?'var(--syn-added)':d==='removed'?'var(--syn-removed)':'transparent',boxShadow:hl.has(i+1)?'inset 2px 0 0 var(--syn-keyword)':'none'}}>
+      {runs(lines.map((ln,i)=>{const raw=isDiff?ln[0][1]:'';const d=isDiff?(raw.startsWith('+')?'added':raw.startsWith('-')?'removed':raw.startsWith('@@')?'meta':null):null;
+        const row=<div key={i} style={{display:'flex',padding:'0 16px 0 0'}}>
           {lineNumbers&&<span style={{flex:'none',width:gutter*8+28,paddingRight:14,textAlign:'right',color:'var(--syn-lineno)',userSelect:'none'}}>{i+1}</span>}
           {!lineNumbers&&<span style={{width:16,flex:'none'}}/>}
           <span>{isDiff?<span style={d==='meta'?STY.keyword:d==='added'?{color:'var(--syn-string)'}:d==='removed'?{color:'var(--syn-keyword)'}:null}>{raw||' '}</span>:ln.length?ln.map(([t,v],k)=><span key={k} style={STY[t]||undefined}>{v}</span>):' '}</span>
-        </div>;})}
+        </div>;
+        return [hl.has(i+1)?'hl':d==='added'||d==='removed'?d:null,row];}))}
     </code></pre>
   </div>;
 }

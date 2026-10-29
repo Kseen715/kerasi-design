@@ -515,6 +515,34 @@ const STY = {
   },
   plain: null
 };
+// Consecutive lines of one kind share a single background block: per-line
+// fills leave sub-pixel seams at fractional line heights (13px × 1.7).
+const RUN = {
+  hl: {
+    background: 'var(--syn-line-hl)',
+    boxShadow: 'inset 2px 0 0 var(--syn-keyword)'
+  },
+  added: {
+    background: 'var(--syn-added)'
+  },
+  removed: {
+    background: 'var(--syn-removed)'
+  }
+};
+function runs(rows) {
+  const out = [];
+  for (const [kind, row] of rows) {
+    const last = out[out.length - 1];
+    if (kind && last && last.kind === kind) last.rows.push(row);else out.push({
+      kind,
+      rows: [row]
+    });
+  }
+  return out.map((r, i) => r.kind ? /*#__PURE__*/React.createElement("div", {
+    key: 'r' + i,
+    style: RUN[r.kind]
+  }, r.rows) : r.rows);
+}
 function CodeBlock({
   code = '',
   language = 'text',
@@ -617,16 +645,14 @@ function CodeBlock({
       display: 'block',
       minWidth: 'max-content'
     }
-  }, lines.map((ln, i) => {
+  }, runs(lines.map((ln, i) => {
     const raw = isDiff ? ln[0][1] : '';
     const d = isDiff ? raw.startsWith('+') ? 'added' : raw.startsWith('-') ? 'removed' : raw.startsWith('@@') ? 'meta' : null : null;
-    return /*#__PURE__*/React.createElement("div", {
+    const row = /*#__PURE__*/React.createElement("div", {
       key: i,
       style: {
         display: 'flex',
-        padding: '0 16px 0 0',
-        background: hl.has(i + 1) ? 'var(--syn-line-hl)' : d === 'added' ? 'var(--syn-added)' : d === 'removed' ? 'var(--syn-removed)' : 'transparent',
-        boxShadow: hl.has(i + 1) ? 'inset 2px 0 0 var(--syn-keyword)' : 'none'
+        padding: '0 16px 0 0'
       }
     }, lineNumbers && /*#__PURE__*/React.createElement("span", {
       style: {
@@ -652,7 +678,8 @@ function CodeBlock({
       key: k,
       style: STY[t] || undefined
     }, v)) : ' '));
-  }))));
+    return [hl.has(i + 1) ? 'hl' : d === 'added' || d === 'removed' ? d : null, row];
+  })))));
 }
 Object.assign(__ds_scope, { highlight, CodeBlock });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/code/CodeBlock.jsx", error: String((e && e.message) || e) }); }
