@@ -22,8 +22,9 @@ button{font:inherit;color:inherit}
 .top .wrap{display:flex;align-items:center;gap:24px;height:64px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg-1)}
 .brand img{width:34px;height:34px}
+.brand div{display:flex;flex-direction:column;gap:6px}
 .brand b{font:600 20px/1 var(--font-display);letter-spacing:.06em;text-transform:uppercase}
-.brand span{font:500 10px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.brand span{font:500 10px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
 .nav{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
 .nav a{flex:none;padding:0 12px;line-height:64px;text-decoration:none;color:var(--fg-2);font:500 13px var(--font-display);letter-spacing:.06em;text-transform:uppercase;transition:color 120ms var(--ease-out)}
 .nav a:hover{color:var(--accent-ink)}
@@ -90,7 +91,7 @@ footer{padding:48px 0 64px;border-top:1px solid var(--line);margin-top:56px;colo
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="#/"><img src="assets/logo/kerasi-mark.svg" alt=""><div><b>Kerasi</b><br><span>Design system</span></div></a>
+  <a class="brand" href="#/"><img src="assets/logo/kerasi-mark.svg" alt=""><div><b>Kerasi</b><span>Design system</span></div></a>
   <nav class="nav" id="nav" aria-label="Sections"></nav>
   <label class="vgroup"><span class="over hide-sm">Theme</span><select class="chip" id="theme" aria-label="Theme"></select></label>
 </div></header>
