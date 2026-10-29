@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Ultrawide dashboard (21:9)" description="2560×1080 no-scroll dashboard: everything you read or click sits in a centred 1720px focus zone; side rails carry glance-only status" -->
+<helmet><script src="./ds-base.js"></script><style>html,body{margin:0}</style></helmet>
+<div data-theme="{{ theme }}" style="position:relative;height:100vh;min-height:900px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);grid-template-rows:72px minmax(0,1fr);background:var(--bg);color:var(--fg-1);font-family:var(--font-body);overflow:hidden">
+<header style="grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);border-bottom:1px solid var(--line)">
+<div></div>
+<div style="display:flex;align-items:center;gap:40px;padding:0 40px;min-width:0">
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Logo" size="{{ 30 }}" hint-size="140px,30px"></x-import>
+<nav style="display:flex;align-items:stretch;gap:4px;height:72px;flex:1;justify-content:center">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a style="text-decoration:none;position:relative;display:flex;align-items:center;padding:0 18px;font-family:var(--font-display);font-weight:500;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-1);cursor:pointer">{{ n.label }}<sc-if value="{{ n.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)"></span></sc-if></a></sc-for>
+</nav>
+<div style="display:flex;align-items:center;gap:10px">
+<div style="width:240px"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Input" placeholder="Search" icon="search" hint-size="240px,40px"></x-import></div>
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.IconButton" icon="bell" label="Notifications" variant="outline" size="{{ 40 }}" hint-size="40px,40px"></x-import>
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" size="sm" icon="plus" hint-size="120px,34px">New report</x-import>
+</div>
+</div>
+<div></div>
+</header>
+<aside style="grid-row:2;display:flex;justify-content:flex-end;padding:40px 40px 40px 24px;min-width:0;overflow:hidden">
+<sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><div style="width:100%;max-width:340px;display:flex;flex-direction:column;gap:32px">
+<div><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);margin-bottom:12px">30-day uptime</div><div style="font-family:var(--font-display);font-weight:600;font-size:96px;line-height:.9;letter-spacing:-.01em">99.98<span style="color:var(--accent-ink)">%</span></div></div>
+<div style="display:flex;flex-direction:column;border-top:2px solid var(--fg-1)">
+<sc-for list="{{ services }}" as="s" hint-placeholder-count="5"><div style="display:flex;align-items:center;gap:14px;height:56px;border-bottom:1px solid var(--line)"><sc-if value="{{ s.ok }}" hint-placeholder-val="{{ true }}"><span style="width:12px;height:12px;flex:none;background:var(--status-success)"></span></sc-if><sc-if value="{{ s.warn }}" hint-placeholder-val="{{ false }}"><span style="width:12px;height:12px;flex:none;background:var(--status-warning)"></span></sc-if><span style="flex:1;font-family:var(--font-display);font-weight:500;font-size:22px;letter-spacing:.03em;text-transform:uppercase">{{ s.name }}</span><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-2)">{{ s.state }}</span></div></sc-for>
+</div>
+<div style="margin-top:auto;padding:20px;background:var(--bg-sunken)"><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8px">Next release</div><div style="font-family:var(--font-display);font-weight:600;font-size:32px;text-transform:uppercase;line-height:1">Spring 2.5</div><div style="font-size:15px;color:var(--fg-2);margin-top:6px">in 3 days · 11 PRs merged</div></div>
+</div></sc-if>
+</aside>
+<main style="grid-row:2;grid-column:2;display:grid;grid-template-rows:auto minmax(0,1fr) 300px;gap:24px;padding:32px 40px;min-width:0;min-height:0">
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px">
+<sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4"><div style="border:1px solid var(--line);background:var(--bg-raised);padding:20px 24px;display:flex;flex-direction:column;gap:10px"><span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)">{{ k.label }}</span><div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px"><span style="font-family:var(--font-display);font-weight:600;font-size:56px;line-height:.9">{{ k.value }}</span><sc-if value="{{ k.good }}" hint-placeholder-val="{{ true }}"><span style="font-family:var(--font-mono);font-size:13px;color:var(--status-success)">{{ k.delta }}</span></sc-if><sc-if value="{{ k.bad }}" hint-placeholder-val="{{ false }}"><span style="font-family:var(--font-mono);font-size:13px;color:var(--status-danger)">{{ k.delta }}</span></sc-if></div></div></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:24px;min-height:0">
+<section style="border:1px solid var(--line);background:var(--bg-raised);padding:24px;display:flex;flex-direction:column;gap:16px;min-height:0">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px"><h2 style="margin:0;font-family:var(--font-display);font-weight:500;font-size:28px;text-transform:uppercase;letter-spacing:.02em">Traffic · last 24 hours</h2><div style="display:flex;gap:20px;font-family:var(--font-mono);font-size:12px;color:var(--fg-2)"><span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:3px;background:var(--chart-1)"></span>Visits</span><span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:3px;background:var(--chart-3)"></span>Same day last week</span></div></div>
+<div style="flex:1;min-height:0;position:relative"><svg viewBox="0 0 1000 300" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><path d="{{ gridLines }}" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"></path><path d="{{ areaFill }}" fill="var(--accent-soft)"></path><path d="{{ lineB }}" stroke="var(--chart-3)" stroke-width="2" stroke-dasharray="6 6" vector-effect="non-scaling-stroke" fill="none"></path><path d="{{ lineA }}" stroke="var(--chart-1)" stroke-width="3" vector-effect="non-scaling-stroke" fill="none"></path></svg></div>
+<div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--fg-3)"><sc-for list="{{ hours }}" as="h" hint-placeholder-count="7"><span>{{ h }}</span></sc-for></div>
+</section>
+<section style="border:1px solid var(--line);background:var(--bg-raised);padding:24px;display:flex;flex-direction:column;min-height:0">
+<h2 style="margin:0 0 12px;font-family:var(--font-display);font-weight:500;font-size:28px;text-transform:uppercase;letter-spacing:.02em">Top pages</h2>
+<sc-for list="{{ pages }}" as="p" hint-placeholder-count="6"><div style="display:grid;grid-template-columns:minmax(0,1fr) 72px;align-items:center;gap:8px 16px;padding:10px 0;border-bottom:1px solid var(--line)"><span style="font-family:var(--font-mono);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.path }}</span><span style="font-family:var(--font-mono);font-size:14px;text-align:right">{{ p.visits }}</span><svg viewBox="0 0 100 4" preserveAspectRatio="none" style="grid-column:1 / -1;display:block;width:100%;height:4px"><rect width="100" height="4" fill="var(--bg-sunken)"></rect><rect width="{{ p.pct }}" height="4" fill="var(--accent)"></rect></svg></div></sc-for>
+</section>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:24px;min-height:0">
+<section style="border:1px solid var(--line);background:var(--bg-raised);padding:24px;display:flex;flex-direction:column;min-height:0">
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px"><h2 style="margin:0;font-family:var(--font-display);font-weight:500;font-size:28px;text-transform:uppercase;letter-spacing:.02em">Deploys</h2><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" variant="quiet" size="sm" icon-right="arrow-right" hint-size="90px,34px">All deploys</x-import></div>
+<sc-for list="{{ deploys }}" as="d" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:96px minmax(0,1fr) 120px 110px 90px;align-items:center;gap:16px;height:48px;border-bottom:1px solid var(--line);font-size:15px"><code style="font-family:var(--font-mono);font-size:13px;color:var(--accent-ink)">{{ d.sha }}</code><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ d.msg }}</span><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-2)">{{ d.env }}</span><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-3)">{{ d.time }}</span><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Badge" tone="{{ d.tone }}" dot="{{ true }}" hint-size="70px,22px">{{ d.state }}</x-import></div></sc-for>
+</section>
+<section style="border:1px solid var(--line);background:var(--bg-raised);padding:24px;display:flex;flex-direction:column;min-height:0">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><h2 style="margin:0;font-family:var(--font-display);font-weight:500;font-size:28px;text-transform:uppercase;letter-spacing:.02em">Build minutes</h2><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-2)">avg 3m 04s</span></div>
+<div style="flex:1;display:flex;align-items:flex-end;gap:14px;padding-top:16px;min-height:0"><sc-for list="{{ bars }}" as="b" hint-placeholder-count="7"><div style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;align-items:stretch"><span style="font-family:var(--font-mono);font-size:11px;color:var(--fg-2);text-align:center">{{ b.v }}</span><svg viewBox="0 0 10 100" preserveAspectRatio="none" style="display:block;width:100%;flex:1;min-height:0"><rect y="{{ b.y }}" width="10" height="{{ b.h }}" fill="{{ b.c }}"></rect></svg><span style="font-family:var(--font-mono);font-size:11px;color:var(--fg-3);text-align:center;text-transform:uppercase">{{ b.d }}</span></div></sc-for></div>
+</section>
+</div>
+</main>
+<aside style="grid-row:2;grid-column:3;display:flex;justify-content:flex-start;padding:40px 24px 40px 40px;min-width:0;overflow:hidden">
+<sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><div style="width:100%;max-width:340px;display:flex;flex-direction:column">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);padding-bottom:12px;border-bottom:2px solid var(--fg-1)">Activity</div>
+<sc-for list="{{ activity }}" as="a" hint-placeholder-count="6"><div style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid var(--line)"><span style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--bg-sunken);color:var(--accent-ink)"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Icon" name="{{ a.icon }}" size="{{ 18 }}" hint-size="18px,18px"></x-import></span><div style="min-width:0"><div style="font-size:16px;line-height:1.35;font-weight:600">{{ a.text }}</div><div style="font-family:var(--font-mono);font-size:12px;color:var(--fg-3);margin-top:4px">{{ a.time }}</div></div></div></sc-for>
+</div></sc-if>
+</aside>
+<sc-if value="{{ guides }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;pointer-events:none;z-index:40"><div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(1720px,100%);border-left:2px dashed var(--accent);border-right:2px dashed var(--accent)"><span style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);padding:6px 10px;background:var(--accent);color:var(--accent-fg);font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Focus zone · 1720px · read and act here</span></div><span style="position:absolute;bottom:12px;left:16px;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)">Periphery · glance only</span><span style="position:absolute;bottom:12px;right:16px;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)">Periphery · glance only</span></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2560,&quot;height&quot;:1080},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sakura&quot;,&quot;sakura-dark&quot;,&quot;wine&quot;,&quot;wine-dark&quot;,&quot;rust&quot;,&quot;rust-dark&quot;],&quot;default&quot;:&quot;sakura&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ultrawide&quot;},&quot;rails&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Ultrawide&quot;},&quot;guides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Ultrawide&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const A=[22,18,14,11,9,8,10,15,24,38,52,61,66,70,68,72,75,71,64,58,52,46,38,30];
+    const B=[20,17,13,10,9,9,11,14,21,31,44,52,57,60,59,62,64,61,55,50,45,40,33,27];
+    const max=80,x=i=>(i/(A.length-1))*1000,y=v=>300-(v/max)*300;
+    const line=a=>a.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
+    const lineA=line(A);
+    const pagesRaw=[['/',6120],['/journal/pruning',3480],['/hanami',2210],['/lantern',1640],['/gallery',1190],['/journal/tokens',860]];
+    const topV=pagesRaw[0][1];
+    const barsRaw=[['Mon',3.4],['Tue',3.1],['Wed',2.9],['Thu',3.3],['Fri',2.8],['Sat',2.6],['Sun',3.0]];
+    return {
+      theme:this.props.theme ?? 'sakura', rails:this.props.rails ?? true, guides:this.props.guides ?? false,
+      nav:[{label:'Overview',on:true},{label:'Traffic',on:false},{label:'Builds',on:false},{label:'Projects',on:false},{label:'Settings',on:false}],
+      kpis:[{label:'Visits · today',value:'18.4k',delta:'+12.6%',good:true},{label:'Deploys · week',value:'42',delta:'+8',good:true},{label:'Avg build',value:'3m 04s',delta:'−71%',good:true},{label:'Error rate',value:'0.04%',delta:'+0.01',bad:true}],
+      lineA, lineB:line(B), areaFill:lineA+' L1000 300 L0 300 Z',
+      gridLines:[75,150,225].map(v=>'M0 '+v+' L1000 '+v).join(' '),
+      hours:['00:00','04:00','08:00','12:00','16:00','20:00','24:00'],
+      pages:pagesRaw.map(([path,v])=>({path,visits:v.toLocaleString('en-US'),pct:Math.round(v/topV*100)})),
+      deploys:[
+        {sha:'a3f9c21',msg:'feat(tabs): lg size and full-width hit area',env:'production',time:'4 min ago',tone:'success',state:'Live'},
+        {sha:'9be1e07',msg:'fix(icon): strip license comments',env:'preview',time:'38 min ago',tone:'info',state:'Ready'},
+        {sha:'51c0d4a',msg:'ci: drop visual-diff step',env:'production',time:'2 h ago',tone:'success',state:'Live'},
+        {sha:'e72aa90',msg:'chore: bump tokens to 2.4.0',env:'preview',time:'5 h ago',tone:'danger',state:'Failed'}],
+      bars:barsRaw.map(([d,v],i)=>{const h=Math.round(v/3.6*100);return {d,v:v.toFixed(1),h,y:100-h,c:i===5?'var(--accent)':'var(--chart-3)'};}),
+      services:[['Site','Operational'],['API','Operational'],['Lantern','Degraded'],['Git','Operational'],['CDN','Operational']].map(([name,state])=>({name,state,ok:state==='Operational',warn:state!=='Operational'})),
+      activity:[
+        {icon:'rocket',text:'kerasi.studio deployed to production',time:'4 min ago'},
+        {icon:'git-commit-horizontal',text:'3 commits pushed to hanami/main',time:'12 min ago'},
+        {icon:'git-pull-request',text:'PR #128 approved',time:'31 min ago'},
+        {icon:'message-square',text:'New comment on “Pruning the build pipeline”',time:'1 h ago'},
+        {icon:'triangle-alert',text:'Lint failed on e72aa90',time:'5 h ago'},
+        {icon:'star',text:'Hanami UI starred 12 times',time:'Today'}]
+    };
+  }
+}
+</script>
+</body>
+</html>

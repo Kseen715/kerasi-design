@@ -7,7 +7,7 @@ const MC={light:{"sun":"#AC2937","ground":"#683D35","groundHi":"#7E4A3B","trunk"
 export const SUBPROJECT_COLORS={crimson:['#AC2937','#FFF6F2'],bark:['#683D35','#F9F0EC'],wine:['#773344','#F4EFE6'],gold:['#C2A878','#191716'],night:['#191716','#ECC483'],rust:['#B7472A','#F8F9F9'],graphite:['#20252B','#E07A5A'],chrome:['#BFC4C7','#20252B']};
 export function Favicon({variant='main',label,color='crimson',ground='paper',size=32,style}){
   if(variant==='main'){
-    const bg=ground==='paper'?'#F9F0EC':ground==='dark'?'#1C1210':null;
+    const bg=ground==='paper'?'#F9F0EC':ground==='dark'?'#171514':null;
     return <svg viewBox="0 0 32 32" width={size} height={size} style={style} aria-label="Kerasi">
       {bg&&<path d={TILE} fill={bg}/>}
       {MAIN.map(([d,k],i)=>{const c=MC[ground==='dark'?'dark':'light'][k];return d==='c'?<circle key={i} cx="10" cy="22" r="6" fill={c}/>:<path key={i} d={d} fill={c}/>;})}

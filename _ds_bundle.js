@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"KerasiDesignSystem_6c0512","components":[{"name":"CodeBlock","sourcePath":"components/code/CodeBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"SUBPROJECT_COLORS","sourcePath":"components/core/Favicon.jsx"},{"name":"Favicon","sourcePath":"components/core/Favicon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Mark","sourcePath":"components/core/Logo.jsx"},{"name":"Logo","sourcePath":"components/core/Logo.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Dialog","sourcePath":"components/feedback/Dialog.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Tooltip","sourcePath":"components/feedback/Tooltip.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/code/CodeBlock.jsx":"c3a51b3e40cc","components/code/samples.js":"89337ac22d4d","components/core/Badge.jsx":"78a2f1b4ba66","components/core/Button.jsx":"d87ac4e65b35","components/core/Card.jsx":"bd736b4ea693","components/core/Favicon.jsx":"ada0a3dba44f","components/core/Icon.jsx":"7a1590261680","components/core/IconButton.jsx":"cfff08c97bc1","components/core/Logo.jsx":"270b90d2243f","components/core/Tag.jsx":"d53558961ad7","components/feedback/Dialog.jsx":"9b3daaa17ac5","components/feedback/Toast.jsx":"499a3fb76675","components/feedback/Tooltip.jsx":"e226d1a54ebb","components/forms/Checkbox.jsx":"b66c4eda1f52","components/forms/Input.jsx":"89e0e1094366","components/forms/Radio.jsx":"f50895f95e8e","components/forms/Select.jsx":"8f9872b12be5","components/forms/Switch.jsx":"24050ec8d1c9","components/navigation/Tabs.jsx":"71b1cf847b4e","ui_kits/kerasi/App.jsx":"65c74cdc8eb3","ui_kits/kerasi/Blog.jsx":"1652ebbffcd1","ui_kits/kerasi/Charts.jsx":"c4867f40d76e","ui_kits/kerasi/Dashboard.jsx":"970ed4493e57","ui_kits/kerasi/Diagrams.jsx":"f8cea5d7e87c","ui_kits/kerasi/Gallery.jsx":"288a0b1ab0b3","ui_kits/kerasi/Git.jsx":"d86610cd333d","ui_kits/kerasi/Home.jsx":"d2fb0c63f2bb","ui_kits/kerasi/Kit.jsx":"a96795b798db"},"inlinedExternals":[],"unexposedExports":[{"name":"highlight","sourcePath":"components/code/CodeBlock.jsx"}]} */
+/* @ds-bundle: {"format":4,"namespace":"KerasiDesignSystem_6c0512","components":[{"name":"CodeBlock","sourcePath":"components/code/CodeBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"SUBPROJECT_COLORS","sourcePath":"components/core/Favicon.jsx"},{"name":"Favicon","sourcePath":"components/core/Favicon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Mark","sourcePath":"components/core/Logo.jsx"},{"name":"Logo","sourcePath":"components/core/Logo.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Dialog","sourcePath":"components/feedback/Dialog.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Tooltip","sourcePath":"components/feedback/Tooltip.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/code/CodeBlock.jsx":"c3a51b3e40cc","components/code/samples.js":"89337ac22d4d","components/core/Badge.jsx":"78a2f1b4ba66","components/core/Button.jsx":"d87ac4e65b35","components/core/Card.jsx":"bd736b4ea693","components/core/Favicon.jsx":"02e46d820505","components/core/Icon.jsx":"7a1590261680","components/core/IconButton.jsx":"cfff08c97bc1","components/core/Logo.jsx":"c0c81959e98a","components/core/Tag.jsx":"d53558961ad7","components/feedback/Dialog.jsx":"6982119b3f1f","components/feedback/Toast.jsx":"499a3fb76675","components/feedback/Tooltip.jsx":"b8070ee5ecb3","components/forms/Checkbox.jsx":"b66c4eda1f52","components/forms/Input.jsx":"89e0e1094366","components/forms/Radio.jsx":"f50895f95e8e","components/forms/Select.jsx":"8f9872b12be5","components/forms/Switch.jsx":"24050ec8d1c9","components/navigation/Tabs.jsx":"71b1cf847b4e","ui_kits/kerasi/App.jsx":"f9844ca48696","ui_kits/kerasi/Blog.jsx":"9c7c716c0afe","ui_kits/kerasi/Charts.jsx":"c4867f40d76e","ui_kits/kerasi/Dashboard.jsx":"95941fbb78dc","ui_kits/kerasi/Diagrams.jsx":"bbadfa377b36","ui_kits/kerasi/Elements.jsx":"4ba2de58d6da","ui_kits/kerasi/Gallery.jsx":"0696f6ddadfe","ui_kits/kerasi/Git.jsx":"a1624f465d9b","ui_kits/kerasi/Home.jsx":"af133aa6eeb5","ui_kits/kerasi/Kit.jsx":"774b4faab111"},"inlinedExternals":[],"unexposedExports":[{"name":"highlight","sourcePath":"components/code/CodeBlock.jsx"}]} */
 
 (() => {
 
@@ -213,7 +213,7 @@ function Favicon({
   style
 }) {
   if (variant === 'main') {
-    const bg = ground === 'paper' ? '#F9F0EC' : ground === 'dark' ? '#1C1210' : null;
+    const bg = ground === 'paper' ? '#F9F0EC' : ground === 'dark' ? '#171514' : null;
     return /*#__PURE__*/React.createElement("svg", {
       viewBox: "0 0 32 32",
       width: size,
@@ -891,15 +891,15 @@ const C = {
   },
   'wine-dark': {
     sun: '#B2475F',
-    ground: '#8A7A70',
-    groundHi: '#A8978A',
-    trunk: '#C2B0A0',
-    trunkSh: '#A8978A',
-    bloom: '#D9C7A0',
-    bloomHi: '#EADDBF',
-    bloomSh: '#C2A878',
-    cord: '#C2A878',
-    lantern: '#C2A878'
+    ground: '#A86A7A',
+    groundHi: '#C08494',
+    trunk: '#CFC5B4',
+    trunkSh: '#A89E8E',
+    bloom: '#EEC567',
+    bloomHi: '#F7D688',
+    bloomSh: '#D4A848',
+    cord: '#D4A848',
+    lantern: '#F7D688'
   },
   'rust-dark': {
     sun: '#E0603F',
@@ -1144,22 +1144,32 @@ function Dialog({
   actions,
   onClose,
   width = 480,
-  inline
+  inline,
+  sheet
 }) {
+  const [narrow, setNarrow] = React.useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  React.useEffect(() => {
+    const on = () => setNarrow(window.innerWidth < 640);
+    window.addEventListener('resize', on);
+    return () => window.removeEventListener('resize', on);
+  }, []);
   if (!open) return null;
+  const asSheet = sheet ?? (narrow && !inline);
   const panel = /*#__PURE__*/React.createElement("div", {
     role: "dialog",
     "aria-modal": "true",
     onClick: e => e.stopPropagation(),
     style: {
-      width,
-      maxWidth: 'calc(100vw - 32px)',
+      width: asSheet ? '100%' : width,
+      maxWidth: asSheet ? '100%' : 'calc(100vw - 32px)',
+      maxHeight: asSheet ? '88vh' : undefined,
+      overflowY: asSheet ? 'auto' : undefined,
       background: 'var(--bg-raised)',
       color: 'var(--fg-1)',
       boxShadow: 'var(--shadow-pop)',
       '--chamfer': 'var(--chamfer-lg)',
       clipPath: 'var(--clip-chamfer)',
-      padding: 28,
+      padding: asSheet ? '24px 16px calc(16px + env(safe-area-inset-bottom))' : 28,
       display: 'flex',
       flexDirection: 'column',
       gap: 16
@@ -1203,6 +1213,7 @@ function Dialog({
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
+      flexDirection: asSheet ? 'column-reverse' : 'row',
       gap: 10,
       paddingTop: 4
     }
@@ -1215,7 +1226,7 @@ function Dialog({
       inset: 0,
       zIndex: 100,
       display: 'flex',
-      alignItems: 'center',
+      alignItems: asSheet ? 'flex-end' : 'center',
       justifyContent: 'center',
       background: 'color-mix(in srgb, var(--fg-1) 35%, transparent)',
       backdropFilter: 'blur(6px)'
@@ -1319,14 +1330,32 @@ function Tooltip({
   label,
   children,
   placement = 'top',
+  align = 'center',
   open
 }) {
   const [h, setH] = React.useState(false);
   const show = open ?? h;
-  const pos = placement === 'bottom' ? {
-    top: 'calc(100% + 8px)'
+  const bottom = placement === 'bottom';
+  const pos = bottom ? {
+    top: 'calc(100% + 10px)'
   } : {
-    bottom: 'calc(100% + 8px)'
+    bottom: 'calc(100% + 10px)'
+  };
+  const x = align === 'start' ? {
+    left: 0
+  } : align === 'end' ? {
+    right: 0
+  } : {
+    left: '50%'
+  };
+  const tx = align === 'center' ? 'translateX(-50%) ' : '';
+  const ax = align === 'start' ? {
+    left: 16
+  } : align === 'end' ? {
+    right: 16
+  } : {
+    left: '50%',
+    marginLeft: -4
   };
   return /*#__PURE__*/React.createElement("span", {
     onMouseEnter: () => setH(true),
@@ -1339,9 +1368,9 @@ function Tooltip({
     role: "tooltip",
     style: {
       position: 'absolute',
-      left: '50%',
+      ...x,
       ...pos,
-      transform: 'translateX(-50%) translateY(' + (show ? 0 : placement === 'bottom' ? -4 : 4) + 'px)',
+      transform: tx + 'translateY(' + (show ? 0 : bottom ? -4 : 4) + 'px)',
       opacity: show ? 1 : 0,
       pointerEvents: 'none',
       transition: 'opacity var(--dur-1) var(--ease-out),transform var(--dur-2) var(--ease-out)',
@@ -1349,12 +1378,24 @@ function Tooltip({
       color: 'var(--bg)',
       fontFamily: 'var(--font-mono)',
       fontSize: 11,
+      lineHeight: '14px',
       letterSpacing: '.04em',
-      padding: '6px 9px',
+      padding: '6px 10px',
       whiteSpace: 'nowrap',
       zIndex: 50
     }
-  }, label));
+  }, label, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      position: 'absolute',
+      ...ax,
+      [bottom ? 'top' : 'bottom']: -4,
+      width: 8,
+      height: 8,
+      background: 'var(--fg-1)',
+      transform: 'rotate(45deg)'
+    }
+  })));
 }
 Object.assign(__ds_scope, { Tooltip });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Tooltip.jsx", error: String((e && e.message) || e) }); }
@@ -1809,7 +1850,7 @@ Object.assign(__ds_scope, { Tabs });
 // ui_kits/kerasi/App.jsx
 try { (() => {
 const appThemes = [['sakura', 'Sakura'], ['sakura-dark', 'Sakura · Dark'], ['wine', 'Wine'], ['wine-dark', 'Wine · Dark'], ['rust', 'Rust'], ['rust-dark', 'Rust · Dark']];
-const appNav = [['home', 'Home'], ['blog', 'Journal'], ['git', 'Code'], ['dashboard', 'Dashboard'], ['diagrams', 'Diagrams'], ['gallery', 'Gallery']];
+const appNav = [['home', 'Home'], ['blog', 'Journal'], ['git', 'Code'], ['dashboard', 'Dashboard'], ['diagrams', 'Diagrams'], ['gallery', 'Gallery'], ['elements', 'Elements']];
 function App() {
   const saved = JSON.parse(localStorage.getItem('kerasi-kit') || '{}');
   const q = new URLSearchParams(location.search);
@@ -1817,9 +1858,12 @@ function App() {
   const [theme, setTheme] = React.useState(q.get('theme') || saved.theme || 'sakura');
   const [route, setRoute] = React.useState(forced || q.get('route') || saved.route || 'home');
   const [slug, setSlug] = React.useState(null);
+  const [menu, setMenu] = React.useState(false);
+  const bp = useBp();
+  const embed = q.has('route');
   React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    if (!forced) localStorage.setItem('kerasi-kit', JSON.stringify({
+    if (!forced && !embed) localStorage.setItem('kerasi-kit', JSON.stringify({
       theme,
       route
     }));
@@ -1830,6 +1874,7 @@ function App() {
   const go = (r, s = null) => {
     setRoute(r);
     setSlug(s);
+    setMenu(false);
     window.scrollTo(0, 0);
   };
   const S = {
@@ -1846,7 +1891,8 @@ function App() {
     diagrams: /*#__PURE__*/React.createElement(DiagramsScreen, null),
     gallery: /*#__PURE__*/React.createElement(GalleryScreen, {
       family: markFamily
-    })
+    }),
+    elements: window.ElementsScreen ? /*#__PURE__*/React.createElement(window.ElementsScreen, null) : null
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1868,22 +1914,30 @@ function App() {
       ...kitWrap,
       display: 'flex',
       alignItems: 'center',
-      gap: 32,
-      height: 68
+      gap: bp === 'desktop' ? 32 : 16,
+      height: bp === 'mobile' ? 60 : 68
     }
   }, /*#__PURE__*/React.createElement("span", {
     onClick: () => go('home'),
     style: {
-      cursor: 'pointer'
+      cursor: 'pointer',
+      flex: bp === 'mobile' ? 1 : 'none'
     }
   }, /*#__PURE__*/React.createElement(Logo, {
-    size: 34
-  })), /*#__PURE__*/React.createElement("nav", {
+    size: bp === 'mobile' ? 28 : 34,
+    wordmark: bp !== 'tablet'
+  })), bp === 'mobile' ? /*#__PURE__*/React.createElement(IconButton, {
+    icon: menu ? 'x' : 'menu',
+    label: "Menu",
+    size: 44,
+    onClick: () => setMenu(!menu)
+  }) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("nav", {
     style: {
       display: 'flex',
-      gap: 22,
+      gap: bp === 'tablet' ? 16 : 22,
       flex: 1,
-      overflowX: 'auto'
+      overflowX: 'auto',
+      scrollbarWidth: 'none'
     }
   }, appNav.map(([id, l]) => /*#__PURE__*/React.createElement("a", {
     key: id,
@@ -1908,15 +1962,61 @@ function App() {
       label: l
     })),
     style: {
-      width: 170
+      width: bp === 'tablet' ? 140 : 170
     }
-  }))), /*#__PURE__*/React.createElement("main", {
+  }))), bp === 'mobile' && menu && /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: '1px solid var(--line)',
+      background: 'var(--bg)',
+      padding: '8px 16px 20px',
+      maxHeight: 'calc(100vh - 60px)',
+      overflowY: 'auto'
+    }
+  }, appNav.map(([id, l]) => /*#__PURE__*/React.createElement("a", {
+    key: id,
+    onClick: () => go(id),
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      minHeight: 56,
+      borderBottom: '1px solid var(--line)',
+      cursor: 'pointer',
+      fontFamily: 'var(--font-display)',
+      fontWeight: 500,
+      fontSize: 24,
+      letterSpacing: '.04em',
+      textTransform: 'uppercase',
+      color: route === id ? 'var(--accent-ink)' : 'var(--fg-1)'
+    }
+  }, l, /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow-right",
+    size: 18
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 20
+    }
+  }, /*#__PURE__*/React.createElement(Overline, {
+    style: {
+      marginBottom: 10
+    }
+  }, "Theme"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 8
+    }
+  }, appThemes.map(([v, l]) => /*#__PURE__*/React.createElement(Tag, {
+    key: v,
+    selected: v === theme,
+    onClick: () => setTheme(v)
+  }, l)))))), /*#__PURE__*/React.createElement("main", {
     "data-screen-label": route
   }, S[route]), /*#__PURE__*/React.createElement(Footer, {
     family: markFamily
   }));
 }
-ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
+if (!(window.KerasiDesignSystem_6c0512 && window.KerasiDesignSystem_6c0512.Button)) document.getElementById('root').innerHTML = '<p style="padding:24px;font-family:monospace">Design-system bundle not loaded (_ds_bundle.js).</p>';else ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/kerasi/App.jsx", error: String((e && e.message) || e) }); }
 
 // ui_kits/kerasi/Blog.jsx
@@ -1960,6 +2060,8 @@ window.blogPosts = [{
 function BlogList({
   open
 }) {
+  const bp = useBp();
+  const m = bp === 'mobile';
   const [tag, setTag] = React.useState('All');
   const tags = ['All', 'Engineering', 'Design', 'Product', 'Notes'];
   const posts = window.blogPosts.filter(p => tag === 'All' || p.tag === tag);
@@ -1967,7 +2069,7 @@ function BlogList({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       ...kitWrap,
-      paddingTop: 64
+      paddingTop: m ? 32 : 64
     }
   }, /*#__PURE__*/React.createElement(Overline, {
     style: {
@@ -1979,8 +2081,11 @@ function BlogList({
     style: {
       display: 'flex',
       gap: 8,
-      flexWrap: 'wrap',
-      margin: '40px 0 48px'
+      flexWrap: m ? 'nowrap' : 'wrap',
+      overflowX: 'auto',
+      scrollbarWidth: 'none',
+      margin: m ? '24px -16px 32px' : '40px 0 48px',
+      padding: m ? '0 16px' : 0
     }
   }, tags.map(t => /*#__PURE__*/React.createElement(Tag, {
     key: t,
@@ -1990,8 +2095,8 @@ function BlogList({
     onClick: () => open(f.slug),
     style: {
       display: 'grid',
-      gridTemplateColumns: 'minmax(0,1.2fr) minmax(0,1fr)',
-      gap: 40,
+      gridTemplateColumns: bp === 'desktop' ? 'minmax(0,1.2fr) minmax(0,1fr)' : '1fr',
+      gap: m ? 20 : 40,
       alignItems: 'end',
       cursor: 'pointer',
       marginBottom: 56
@@ -2021,7 +2126,7 @@ function BlogList({
   }, f.ex), /*#__PURE__*/React.createElement(Overline, null, f.date, " \xB7 ", f.read))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))',
+      gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,260px),1fr))',
       gap: '40px 24px'
     }
   }, rest.map(p => /*#__PURE__*/React.createElement(Card, {
@@ -2038,8 +2143,9 @@ function BlogPost({
   back
 }) {
   const p = window.blogPosts.find(x => x.slug === slug) || window.blogPosts[0];
+  const m = useBp() === 'mobile';
   const P = {
-    fontSize: 18,
+    fontSize: m ? 17 : 18,
     lineHeight: 1.75,
     color: 'var(--fg-1)',
     margin: '0 0 24px',
@@ -2049,7 +2155,7 @@ function BlogPost({
     style: {
       ...kitWrap,
       maxWidth: 820,
-      paddingTop: 48
+      paddingTop: m ? 24 : 48
     }
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "quiet",
@@ -2474,6 +2580,7 @@ function Stat({
   spark,
   good = true
 }) {
+  const m = useBp() === 'mobile';
   return /*#__PURE__*/React.createElement("div", {
     style: {
       padding: '20px 0',
@@ -2491,10 +2598,10 @@ function Stat({
     style: {
       fontFamily: 'var(--font-display)',
       fontWeight: 600,
-      fontSize: 56,
+      fontSize: m ? 36 : 56,
       lineHeight: .9
     }
-  }, value), /*#__PURE__*/React.createElement(Sparkline, {
+  }, value), !m && /*#__PURE__*/React.createElement(Sparkline, {
     data: spark
   })), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2506,13 +2613,16 @@ function Stat({
   }, delta, " vs last period"));
 }
 function DashboardScreen() {
+  const bp = useBp();
+  const m = bp === 'mobile';
   const [range, setRange] = React.useState('Week');
   const d = dashData[range];
   const deploys = [['hanami-ui', 'main', 'success', '42s', '5h'], ['bark', 'release/1.8', 'success', '1m 12s', '9h'], ['lantern', 'main', 'danger', '—', '1d'], ['kerasi.studio', 'main', 'success', '28s', '1d']];
   const box = {
     border: '1px solid var(--line)',
     background: 'var(--bg-raised)',
-    padding: 24
+    padding: m ? 16 : 24,
+    minWidth: 0
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2538,7 +2648,9 @@ function DashboardScreen() {
     style: {
       display: 'flex',
       gap: 16,
-      alignItems: 'center'
+      alignItems: 'center',
+      width: m ? '100%' : 'auto',
+      justifyContent: 'space-between'
     }
   }, /*#__PURE__*/React.createElement(Tabs, {
     items: ['Week', 'Month', 'Year'],
@@ -2551,8 +2663,8 @@ function DashboardScreen() {
   }, "Export"))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(4,minmax(0,1fr))',
-      gap: 24
+      gridTemplateColumns: bp === 'desktop' ? 'repeat(4,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))',
+      gap: m ? 16 : 24
     }
   }, /*#__PURE__*/React.createElement(Stat, {
     label: "Visitors",
@@ -2577,7 +2689,7 @@ function DashboardScreen() {
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'minmax(0,2fr) minmax(0,1fr)',
+      gridTemplateColumns: bp === 'desktop' ? 'minmax(0,2fr) minmax(0,1fr)' : 'minmax(0,1fr)',
       gap: 24,
       marginTop: 32
     }
@@ -2587,6 +2699,8 @@ function DashboardScreen() {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      gap: 8,
       marginBottom: 16
     }
   }, /*#__PURE__*/React.createElement(Display, {
@@ -2619,7 +2733,7 @@ function DashboardScreen() {
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)',
+      gridTemplateColumns: bp === 'desktop' ? 'minmax(0,1fr) minmax(0,1fr)' : 'minmax(0,1fr)',
       gap: 24,
       marginTop: 24
     }
@@ -2647,7 +2761,7 @@ function DashboardScreen() {
     key: p,
     style: {
       display: 'grid',
-      gridTemplateColumns: 'minmax(0,1fr) 120px 60px 40px',
+      gridTemplateColumns: m ? 'minmax(0,1fr) auto 32px' : 'minmax(0,1fr) 120px 60px 40px',
       gap: 12,
       alignItems: 'center',
       padding: '12px 0',
@@ -2667,7 +2781,7 @@ function DashboardScreen() {
   }, b)), /*#__PURE__*/React.createElement(Badge, {
     tone: s,
     dot: true
-  }, s === 'success' ? 'Ready' : 'Failed'), /*#__PURE__*/React.createElement("span", {
+  }, s === 'success' ? 'Ready' : 'Failed'), !m && /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: 'var(--font-mono)',
       fontSize: 12
@@ -2685,13 +2799,15 @@ window.DashboardScreen = DashboardScreen;
 // ui_kits/kerasi/Diagrams.jsx
 try { (() => {
 function DiagramsScreen() {
+  const m = useBp() === 'mobile';
   const box = {
     border: '1px solid var(--line)',
     background: 'var(--bg-raised)',
-    padding: 24,
+    padding: m ? 16 : 24,
     display: 'flex',
     flexDirection: 'column',
-    gap: 16
+    gap: 16,
+    minWidth: 0
   };
   const H = ({
     i,
@@ -2767,13 +2883,23 @@ function DiagramsScreen() {
   }, /*#__PURE__*/React.createElement(H, {
     i: "Flow",
     t: "Release pipeline"
-  }), /*#__PURE__*/React.createElement(Flow, {
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflowX: 'auto',
+      margin: m ? '0 -16px' : 0,
+      padding: m ? '0 16px' : 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: m ? 560 : 0
+    }
+  }, /*#__PURE__*/React.createElement(Flow, {
     nodes: nodes,
     edges: [[0, 1], [0, 2], [1, 3], [2, 3], [3, 4], [3, 5], [5, 6]]
-  })), /*#__PURE__*/React.createElement("div", {
+  })))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(340px,1fr))',
+      gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,340px),1fr))',
       gap: 24
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -2819,7 +2945,8 @@ function DiagramsScreen() {
     style: {
       display: 'flex',
       gap: 24,
-      alignItems: 'center'
+      alignItems: 'center',
+      flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Donut, {
     values: [62, 24, 9, 5],
@@ -2889,6 +3016,391 @@ function DiagramsScreen() {
 window.DiagramsScreen = DiagramsScreen;
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/kerasi/Diagrams.jsx", error: String((e && e.message) || e) }); }
 
+// ui_kits/kerasi/Elements.jsx
+try { (() => {
+function ElSection({
+  n,
+  title,
+  note,
+  children
+}) {
+  const m = useBp() === 'mobile';
+  return /*#__PURE__*/React.createElement("section", {
+    style: {
+      padding: m ? '28px 0' : '40px 0',
+      borderTop: '2px solid var(--fg-1)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'baseline',
+      gap: 12,
+      flexWrap: 'wrap',
+      marginBottom: m ? 16 : 24
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Overline, {
+    style: {
+      marginBottom: 6
+    }
+  }, n), /*#__PURE__*/React.createElement(Display, {
+    size: m ? 28 : 36,
+    as: "h2"
+  }, title)), note && /*#__PURE__*/React.createElement(Overline, null, note)), children);
+}
+function ElementsScreen() {
+  const bp = useBp();
+  const m = bp === 'mobile';
+  const t = bp === 'tablet';
+  const [dlg, setDlg] = React.useState(false);
+  const [toast, setToast] = React.useState(false);
+  const [tab, setTab] = React.useState('code');
+  const [tag, setTag] = React.useState('All');
+  const Fav = window.KerasiDesignSystem_6c0512 && window.KerasiDesignSystem_6c0512.Favicon;
+  const row = {
+    display: 'flex',
+    gap: m ? 8 : 12,
+    flexWrap: 'wrap',
+    alignItems: 'center'
+  };
+  const scrollRow = {
+    display: 'flex',
+    gap: 8,
+    overflowX: 'auto',
+    scrollbarWidth: 'none',
+    flexWrap: m ? 'nowrap' : 'wrap',
+    margin: m ? '0 -16px' : 0,
+    padding: m ? '0 16px' : 0
+  };
+  const cols = n => ({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(' + n + ',minmax(0,1fr))',
+    gap: m ? 12 : 16
+  });
+  const bsz = m ? 'lg' : 'md';
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...kitWrap,
+      paddingTop: m ? 24 : 40
+    }
+  }, /*#__PURE__*/React.createElement(Overline, {
+    style: {
+      marginBottom: 10
+    }
+  }, "Elements \xB7 ", m ? 'phone' : t ? 'tablet' : 'desktop', " layout"), /*#__PURE__*/React.createElement(Display, {
+    size: 96
+  }, "Elements"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      color: 'var(--fg-2)',
+      fontSize: m ? 16 : 17,
+      maxWidth: 560,
+      margin: '16px 0 32px',
+      textWrap: 'pretty'
+    }
+  }, "Every component as it behaves at this width. Below 640px: full-width actions, 44px touch targets, scrolling chip rows, bottom-sheet dialogs, edge-to-edge toasts."), /*#__PURE__*/React.createElement(ElSection, {
+    n: "01",
+    title: "Buttons",
+    note: m ? 'stacked · full width' : 'inline'
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: m ? 'column' : 'row',
+      gap: m ? 10 : 12,
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement(Button, {
+    full: m,
+    size: bsz,
+    iconRight: "arrow-right"
+  }, "Primary"), /*#__PURE__*/React.createElement(Button, {
+    full: m,
+    size: bsz,
+    variant: "secondary"
+  }, "Secondary"), /*#__PURE__*/React.createElement(Button, {
+    full: m,
+    size: bsz,
+    variant: "ghost"
+  }, "Ghost"), /*#__PURE__*/React.createElement(Button, {
+    full: m,
+    size: bsz,
+    variant: "quiet",
+    icon: "download"
+  }, "Quiet"), /*#__PURE__*/React.createElement(Button, {
+    full: m,
+    size: bsz,
+    disabled: true
+  }, "Disabled")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...row,
+      marginTop: 16
+    }
+  }, ['plus', 'search', 'share-2', 'heart', 'settings'].map(i => /*#__PURE__*/React.createElement(IconButton, {
+    key: i,
+    icon: i,
+    label: i,
+    size: 44,
+    variant: i === 'plus' ? 'solid' : 'outline'
+  })))), /*#__PURE__*/React.createElement(ElSection, {
+    n: "02",
+    title: "Badges & tags",
+    note: m ? 'chips scroll sideways' : null
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...row,
+      marginBottom: 16
+    }
+  }, ['neutral', 'accent', 'solid', 'success', 'warning', 'danger', 'info'].map(x => /*#__PURE__*/React.createElement(Badge, {
+    key: x,
+    tone: x,
+    dot: x === 'success' || x === 'danger'
+  }, x))), /*#__PURE__*/React.createElement("div", {
+    style: scrollRow
+  }, ['All', 'Engineering', 'Design', 'Product', 'Notes', 'Archive'].map(x => /*#__PURE__*/React.createElement(Tag, {
+    key: x,
+    selected: x === tag,
+    onClick: () => setTag(x)
+  }, x))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...row,
+      marginTop: 12
+    }
+  }, ['react', 'tokens', 'themes'].map(x => /*#__PURE__*/React.createElement(Tag, {
+    key: x,
+    onRemove: () => {}
+  }, x)))), /*#__PURE__*/React.createElement(ElSection, {
+    n: "03",
+    title: "Forms",
+    note: m ? '1 column' : t ? '2 columns' : '3 columns'
+  }, /*#__PURE__*/React.createElement("div", {
+    style: cols(m ? 1 : t ? 2 : 3)
+  }, /*#__PURE__*/React.createElement(Input, {
+    label: "Email",
+    placeholder: "you@studio.gr",
+    icon: "mail"
+  }), /*#__PURE__*/React.createElement(Input, {
+    label: "Branch",
+    mono: true,
+    defaultValue: "release/spring",
+    error: "Branch is protected"
+  }), /*#__PURE__*/React.createElement(Select, {
+    label: "Theme",
+    options: ['Sakura', 'Wine', 'Rust'],
+    hint: "Applies to all pages"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: m ? 'column' : 'row',
+      gap: m ? 14 : 28,
+      marginTop: 20,
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement(Checkbox, {
+    label: "Require review",
+    defaultChecked: true
+  }), /*#__PURE__*/React.createElement(Checkbox, {
+    label: "Sign commits"
+  }), /*#__PURE__*/React.createElement(Radio, {
+    direction: m ? 'column' : 'row',
+    options: ['Public', 'Private'],
+    defaultValue: "Public"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: m ? 'column' : 'row',
+      gap: m ? 14 : 28,
+      marginTop: 16
+    }
+  }, /*#__PURE__*/React.createElement(Switch, {
+    label: "Dark theme",
+    defaultChecked: true
+  }), /*#__PURE__*/React.createElement(Switch, {
+    label: "Auto-deploy"
+  })), m && /*#__PURE__*/React.createElement(Button, {
+    full: true,
+    size: "lg",
+    style: {
+      marginTop: 20
+    }
+  }, "Save settings")), /*#__PURE__*/React.createElement(ElSection, {
+    n: "04",
+    title: "Tabs",
+    note: "scroll when they overflow"
+  }, /*#__PURE__*/React.createElement(Tabs, {
+    size: m ? 'md' : 'lg',
+    value: tab,
+    onChange: setTab,
+    items: [{
+      id: 'code',
+      label: 'Code'
+    }, {
+      id: 'issues',
+      label: 'Issues',
+      count: 3
+    }, {
+      id: 'pulls',
+      label: 'Pull requests',
+      count: 2
+    }, {
+      id: 'actions',
+      label: 'Actions'
+    }, {
+      id: 'settings',
+      label: 'Settings'
+    }]
+  })), /*#__PURE__*/React.createElement(ElSection, {
+    n: "05",
+    title: "Cards",
+    note: m ? '1 column' : t ? '2 columns' : '3 columns'
+  }, /*#__PURE__*/React.createElement("div", {
+    style: cols(m ? 1 : t ? 2 : 3)
+  }, /*#__PURE__*/React.createElement(Card, {
+    variant: "cut",
+    padding: m ? 20 : 28,
+    eyebrow: "01 \u2014 Open source",
+    title: "Hanami UI",
+    footer: /*#__PURE__*/React.createElement(Button, {
+      variant: "quiet",
+      size: "sm",
+      iconRight: "arrow-right"
+    }, "Open")
+  }, "A component library for quiet, seasonal interfaces."), /*#__PURE__*/React.createElement(Card, {
+    variant: "rule",
+    eyebrow: "Oct 21 \xB7 Engineering",
+    title: "Pruning the build pipeline",
+    footer: /*#__PURE__*/React.createElement(Overline, null, "7 min")
+  }, "CI time from eleven minutes to three."), /*#__PURE__*/React.createElement(Card, {
+    variant: "inverse",
+    padding: m ? 20 : 24,
+    eyebrow: "Lantern",
+    title: "18.4k visits"
+  }, "+12.6% vs last week"))), /*#__PURE__*/React.createElement(ElSection, {
+    n: "06",
+    title: "Code",
+    note: m ? 'scrolls sideways' : null
+  }, /*#__PURE__*/React.createElement(CodeBlock, {
+    language: "ts",
+    title: "bloom.ts",
+    code: "export async function bloom(branch: Branch, opts: BloomOptions) {\n  const count = opts.petals ?? 5;\n  await branch.open({ count, at: opts.season.peak });\n}",
+    highlightLines: [2],
+    style: m ? {
+      margin: '0 -16px',
+      borderLeft: 'none',
+      borderRight: 'none'
+    } : null
+  })), /*#__PURE__*/React.createElement(ElSection, {
+    n: "07",
+    title: "Feedback",
+    note: m ? 'sheet · edge toast' : 'modal · corner toast'
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: m ? 'column' : 'row',
+      gap: m ? 10 : 12
+    }
+  }, /*#__PURE__*/React.createElement(Button, {
+    full: m,
+    size: bsz,
+    variant: "secondary",
+    onClick: () => setDlg(true)
+  }, "Open dialog"), /*#__PURE__*/React.createElement(Button, {
+    full: m,
+    size: bsz,
+    variant: "secondary",
+    onClick: () => {
+      setToast(true);
+      setTimeout(() => setToast(false), 2600);
+    }
+  }, "Show toast"), !m && /*#__PURE__*/React.createElement(Tooltip, {
+    label: "Copy SHA"
+  }, /*#__PURE__*/React.createElement(IconButton, {
+    icon: "copy",
+    label: "Copy",
+    variant: "outline",
+    size: 42
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: m ? '1fr' : 'minmax(0,1fr) minmax(0,1fr)',
+      gap: 12,
+      marginTop: 16
+    }
+  }, /*#__PURE__*/React.createElement(Toast, {
+    tone: "success",
+    title: "Deployed",
+    style: {
+      width: 'auto'
+    }
+  }, "kerasi.studio is live \u2014 42s"), /*#__PURE__*/React.createElement(Toast, {
+    tone: "danger",
+    title: "Build failed",
+    style: {
+      width: 'auto'
+    }
+  }, "Step 3 \xB7 lint"))), /*#__PURE__*/React.createElement(ElSection, {
+    n: "08",
+    title: "Brand",
+    note: "mark \xB7 favicons"
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: m ? 16 : 28,
+      alignItems: 'center',
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement(Logo, {
+    size: m ? 32 : 40
+  }), /*#__PURE__*/React.createElement(Mark, {
+    size: m ? 56 : 72
+  }), Fav && /*#__PURE__*/React.createElement(Fav, {
+    size: 32
+  }), Fav && /*#__PURE__*/React.createElement(Fav, {
+    variant: "sub",
+    label: "H",
+    color: "crimson",
+    size: 32
+  }), Fav && /*#__PURE__*/React.createElement(Fav, {
+    variant: "sub",
+    label: "B",
+    color: "bark",
+    size: 32
+  }), Fav && /*#__PURE__*/React.createElement(Fav, {
+    variant: "sub",
+    label: "G",
+    color: "graphite",
+    size: 32
+  }))), /*#__PURE__*/React.createElement(Dialog, {
+    open: dlg,
+    eyebrow: "Branch",
+    title: "Delete release/spring?",
+    onClose: () => setDlg(false),
+    actions: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Button, {
+      full: m,
+      variant: "ghost",
+      onClick: () => setDlg(false)
+    }, "Cancel"), /*#__PURE__*/React.createElement(Button, {
+      full: m,
+      onClick: () => setDlg(false)
+    }, "Delete"))
+  }, "This removes 14 commits not merged into main."), toast && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'fixed',
+      left: m ? 12 : 'auto',
+      right: m ? 12 : 24,
+      bottom: m ? 12 : 24,
+      zIndex: 60
+    }
+  }, /*#__PURE__*/React.createElement(Toast, {
+    tone: "accent",
+    title: "Saved",
+    onClose: () => setToast(false),
+    style: m ? {
+      width: 'auto'
+    } : null
+  }, "Theme applied to all pages")));
+}
+window.ElementsScreen = ElementsScreen;
+})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/kerasi/Elements.jsx", error: String((e && e.message) || e) }); }
+
 // ui_kits/kerasi/Gallery.jsx
 try { (() => {
 const galleryItems = [{
@@ -2951,6 +3463,7 @@ function GalleryTile({
   family,
   onOpen
 }) {
+  const m = useBp() === 'mobile';
   const [h, setH] = React.useState(false);
   let inner;
   if (it.swatch) inner = /*#__PURE__*/React.createElement("div", {
@@ -2962,7 +3475,7 @@ function GalleryTile({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
-      padding: 20
+      padding: m ? 12 : 20
     }
   }, /*#__PURE__*/React.createElement(Overline, {
     style: {
@@ -2970,7 +3483,7 @@ function GalleryTile({
       opacity: .75
     }
   }, it.theme), /*#__PURE__*/React.createElement(Display, {
-    size: 48,
+    size: m ? 26 : 48,
     as: "div"
   }, it.t));else if (it.mark) inner = /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2981,7 +3494,7 @@ function GalleryTile({
       justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement(Mark, {
-    size: 200
+    size: m ? 110 : 200
   }));else inner = /*#__PURE__*/React.createElement(Placeholder, {
     label: it.k + ' — drop image',
     ratio: it.r
@@ -2991,7 +3504,7 @@ function GalleryTile({
     onMouseEnter: () => setH(true),
     onMouseLeave: () => setH(false),
     style: {
-      margin: '0 0 20px',
+      margin: m ? '0 0 14px' : '0 0 20px',
       breakInside: 'avoid',
       cursor: 'zoom-in'
     }
@@ -3004,8 +3517,10 @@ function GalleryTile({
     style: {
       display: 'flex',
       justifyContent: 'space-between',
-      marginTop: 10,
-      fontSize: 14
+      marginTop: 8,
+      fontSize: m ? 12 : 14,
+      gap: 6,
+      flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -3016,6 +3531,8 @@ function GalleryTile({
 function GalleryScreen({
   family
 }) {
+  const bp = useBp();
+  const m = bp === 'mobile';
   const [k, setK] = React.useState('All');
   const [open, setOpen] = React.useState(null);
   const kinds = ['All', 'Palette', 'Photo', 'Brand', 'Screens'];
@@ -3044,7 +3561,12 @@ function GalleryScreen({
     style: {
       display: 'flex',
       gap: 8,
-      flexWrap: 'wrap'
+      flexWrap: m ? 'nowrap' : 'wrap',
+      overflowX: 'auto',
+      scrollbarWidth: 'none',
+      width: m ? 'calc(100% + 32px)' : 'auto',
+      margin: m ? '0 -16px' : 0,
+      padding: m ? '0 16px' : 0
     }
   }, kinds.map(x => /*#__PURE__*/React.createElement(Tag, {
     key: x,
@@ -3052,8 +3574,8 @@ function GalleryScreen({
     onClick: () => setK(x)
   }, x)))), /*#__PURE__*/React.createElement("div", {
     style: {
-      columns: '3 280px',
-      columnGap: 20
+      columns: m ? 2 : bp === 'tablet' ? 3 : '3 280px',
+      columnGap: m ? 12 : 20
     }
   }, items.map(it => /*#__PURE__*/React.createElement(GalleryTile, {
     key: it.id,
@@ -3123,6 +3645,8 @@ const gitIssues = [{
   a: '1w'
 }];
 function GitScreen() {
+  const bp = useBp();
+  const m = bp === 'mobile';
   const [tab, setTab] = React.useState('code');
   const [toast, setToast] = React.useState(false);
   return /*#__PURE__*/React.createElement("div", {
@@ -3154,7 +3678,8 @@ function GitScreen() {
   }, "A component library for quiet, seasonal interfaces.")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
-      gap: 8
+      gap: 8,
+      flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "secondary",
@@ -3189,7 +3714,7 @@ function GitScreen() {
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'minmax(0,1fr) 280px',
+      gridTemplateColumns: bp === 'desktop' ? 'minmax(0,1fr) 280px' : 'minmax(0,1fr)',
       gap: 40,
       marginTop: 28
     }
@@ -3204,13 +3729,13 @@ function GitScreen() {
   }, /*#__PURE__*/React.createElement(Select, {
     options: ['main', 'release/spring', 'feat/tabs-lg'],
     style: {
-      width: 200
+      width: m ? 'calc(100% - 96px)' : 200
     }
-  }), /*#__PURE__*/React.createElement(Overline, null, "3 branches \xB7 14 tags"), /*#__PURE__*/React.createElement("div", {
+  }), !m && /*#__PURE__*/React.createElement(Overline, null, "3 branches \xB7 14 tags"), !m && /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1
     }
-  }), /*#__PURE__*/React.createElement(Input, {
+  }), m ? null : /*#__PURE__*/React.createElement(Input, {
     placeholder: "Go to file",
     icon: "search",
     style: {
@@ -3243,7 +3768,7 @@ function GitScreen() {
       borderRadius: '50%',
       background: 'var(--accent)'
     }
-  }), /*#__PURE__*/React.createElement("b", null, "mira"), /*#__PURE__*/React.createElement("span", {
+  }), /*#__PURE__*/React.createElement("b", null, "mira"), !m && /*#__PURE__*/React.createElement("span", {
     style: {
       color: 'var(--fg-2)'
     }
@@ -3264,11 +3789,11 @@ function GitScreen() {
   }, "5h"), /*#__PURE__*/React.createElement(Badge, {
     tone: "success",
     dot: true
-  }, "Passing")), gitFiles.map(([k, n, m, d]) => /*#__PURE__*/React.createElement("div", {
+  }, "Passing")), gitFiles.map(([k, n, mm, d]) => /*#__PURE__*/React.createElement("div", {
     key: n,
     style: {
       display: 'grid',
-      gridTemplateColumns: '24px 200px minmax(0,1fr) 110px',
+      gridTemplateColumns: m ? '20px minmax(0,1fr) auto' : '24px 200px minmax(0,1fr) 110px',
       gap: 12,
       alignItems: 'center',
       padding: '11px 16px',
@@ -3283,14 +3808,14 @@ function GitScreen() {
     style: {
       fontWeight: 500
     }
-  }, n), /*#__PURE__*/React.createElement("span", {
+  }, n), !m && /*#__PURE__*/React.createElement("span", {
     style: {
       color: 'var(--fg-2)',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap'
     }
-  }, m), /*#__PURE__*/React.createElement("span", {
+  }, mm), /*#__PURE__*/React.createElement("span", {
     style: {
       color: 'var(--fg-3)',
       textAlign: 'right',
@@ -3318,7 +3843,7 @@ function GitScreen() {
     }
   }, "README.md")), /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: '28px 32px'
+      padding: m ? '20px 16px' : '28px 32px'
     }
   }, /*#__PURE__*/React.createElement(Display, {
     size: 40,
@@ -3470,8 +3995,9 @@ function GitScreen() {
   }, "Latest"))))), toast && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'fixed',
-      right: 24,
-      bottom: 24,
+      right: m ? 12 : 24,
+      left: m ? 12 : 'auto',
+      bottom: m ? 12 : 24,
       zIndex: 60
     }
   }, /*#__PURE__*/React.createElement(Toast, {
@@ -3504,6 +4030,8 @@ function HomeScreen({
   family,
   go
 }) {
+  const bp = useBp();
+  const m = bp === 'mobile';
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("section", {
     style: {
       ...kitWrap,
@@ -3511,7 +4039,8 @@ function HomeScreen({
       gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,420px),1fr))',
       gap: 48,
       alignItems: 'center',
-      padding: '72px 32px 88px'
+      paddingTop: m ? 40 : 72,
+      paddingBottom: m ? 56 : 88
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Overline, {
     style: {
@@ -3525,7 +4054,7 @@ function HomeScreen({
     }
   }, "Cut sharp.")), /*#__PURE__*/React.createElement("p", {
     style: {
-      fontSize: 19,
+      fontSize: m ? 17 : 19,
       lineHeight: 1.6,
       color: 'var(--fg-2)',
       maxWidth: 520,
@@ -3536,13 +4065,16 @@ function HomeScreen({
     style: {
       display: 'flex',
       gap: 12,
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      flexDirection: m ? 'column' : 'row'
     }
   }, /*#__PURE__*/React.createElement(Button, {
+    full: m,
     size: "lg",
     iconRight: "arrow-right",
     onClick: () => go('git')
   }, "Browse projects"), /*#__PURE__*/React.createElement(Button, {
+    full: m,
     size: "lg",
     variant: "secondary",
     onClick: () => go('blog')
@@ -3552,7 +4084,7 @@ function HomeScreen({
       justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement(Mark, {
-    size: 420,
+    size: m ? 240 : 420,
     style: {
       maxWidth: '100%',
       height: 'auto'
@@ -3571,7 +4103,7 @@ function HomeScreen({
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))',
+      gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,260px),1fr))',
       gap: 16
     }
   }, homeProjects.map(p => /*#__PURE__*/React.createElement(Card, {
@@ -3589,7 +4121,7 @@ function HomeScreen({
   }, p.d)))), /*#__PURE__*/React.createElement("section", {
     style: {
       ...kitWrap,
-      marginTop: 96
+      marginTop: m ? 64 : 96
     }
   }, /*#__PURE__*/React.createElement(SectionHead, {
     index: "02",
@@ -3598,7 +4130,7 @@ function HomeScreen({
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(3,1fr)'
+      gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)'
     }
   }, [['sakura', 'Sakura', '#AC2937'], ['wine', 'Wine', '#773344'], ['rust', 'Rust', '#B7472A']].map(([t, n, hex]) => /*#__PURE__*/React.createElement("div", {
     key: t,
@@ -3607,7 +4139,7 @@ function HomeScreen({
       background: 'var(--accent)',
       color: 'var(--accent-fg)',
       padding: '28px 24px',
-      minHeight: 260,
+      minHeight: m ? 150 : bp === 'tablet' ? 200 : 260,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between'
@@ -3639,17 +4171,21 @@ function HomeScreen({
     onClick: () => go('blog', p.slug),
     style: {
       display: 'grid',
-      gridTemplateColumns: '120px minmax(0,1fr) auto',
-      gap: 24,
+      gridTemplateColumns: m ? 'minmax(0,1fr) auto' : '120px minmax(0,1fr) auto',
+      gap: m ? '8px 16px' : 24,
       alignItems: 'baseline',
       padding: '22px 0',
       borderBottom: '1px solid var(--line)',
       cursor: 'pointer'
     }
-  }, /*#__PURE__*/React.createElement(Overline, null, p.date), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement(Overline, {
+    style: m ? {
+      gridColumn: '1 / -1'
+    } : null
+  }, p.date), /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: 'var(--font-display)',
-      fontSize: 28,
+      fontSize: m ? 22 : 28,
       fontWeight: 500,
       textTransform: 'uppercase',
       lineHeight: 1.05
@@ -3664,7 +4200,6 @@ window.HomeScreen = HomeScreen;
 // ui_kits/kerasi/Kit.jsx
 try { (() => {
 const DS = window.KerasiDesignSystem_6c0512 || {};
-if (!DS.Button) document.body.insertAdjacentHTML("afterbegin", "<p style=\"padding:24px;font-family:monospace\">Design-system bundle not loaded (_ds_bundle.js).</p>");
 const {
   Button,
   IconButton,
@@ -3688,8 +4223,22 @@ const {
 const kitWrap = {
   maxWidth: 1240,
   margin: '0 auto',
-  padding: '0 32px'
+  padding: '0 clamp(16px,4vw,32px)'
 };
+function useBp() {
+  const get = () => {
+    const w = window.innerWidth;
+    return w < 640 ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
+  };
+  const [bp, setBp] = React.useState(get);
+  React.useEffect(() => {
+    const on = () => setBp(get());
+    window.addEventListener('resize', on);
+    return () => window.removeEventListener('resize', on);
+  }, []);
+  return bp;
+}
+const fluid = s => typeof s === 'number' && s > 32 ? 'clamp(' + Math.round(Math.max(28, s * .42)) + 'px,' + (s / 14.4).toFixed(2) + 'vw,' + s + 'px)' : s;
 function Overline({
   children,
   style
@@ -3716,7 +4265,7 @@ function Display({
     style: {
       fontFamily: 'var(--font-display)',
       fontWeight: 600,
-      fontSize: size,
+      fontSize: fluid(size),
       lineHeight: .9,
       letterSpacing: '-.01em',
       textTransform: 'uppercase',
@@ -3737,7 +4286,8 @@ function SectionHead({
       display: 'flex',
       alignItems: 'flex-end',
       justifyContent: 'space-between',
-      gap: 24,
+      flexWrap: 'wrap',
+      gap: '12px 24px',
       borderTop: '2px solid var(--fg-1)',
       paddingTop: 16,
       marginBottom: 32
@@ -3815,6 +4365,8 @@ function Footer({
   }))));
 }
 Object.assign(window, {
+  useBp,
+  fluid,
   DS,
   Button,
   IconButton,

@@ -10,5 +10,7 @@ export interface DialogProps{
   width?:number;
   /** Render the panel in place without the fixed scrim (for docs/cards) */
   inline?:boolean;
+  /** Bottom-sheet layout. Default: automatic below 640px viewport width (not for inline). */
+  sheet?:boolean;
 }
 export declare function Dialog(props:DialogProps):JSX.Element|null;

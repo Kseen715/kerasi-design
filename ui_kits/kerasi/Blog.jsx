@@ -5,28 +5,28 @@ window.blogPosts=[
   {slug:'lantern',date:'Aug 30, 2026',tag:'Product',title:'Lantern 1.0: counting without cookies',ex:'Our analytics tool is out. It stores nothing it does not need.',read:'4 min'},
   {slug:'roots',date:'Aug 02, 2026',tag:'Notes',title:'A decade of side projects',ex:'What survived, what was cut, and what grew back.',read:'9 min'},
 ];
-function BlogList({open}){
+function BlogList({open}){const bp=useBp();const m=bp==='mobile';
   const [tag,setTag]=React.useState('All');
   const tags=['All','Engineering','Design','Product','Notes'];
   const posts=window.blogPosts.filter(p=>tag==='All'||p.tag===tag);
   const [f,...rest]=posts;
-  return <div style={{...kitWrap,paddingTop:64}}>
+  return <div style={{...kitWrap,paddingTop:m?32:64}}>
     <Overline style={{marginBottom:16}}>Journal · {window.blogPosts.length} posts</Overline>
     <Display size={120}>Notes from<br/>the orchard</Display>
-    <div style={{display:'flex',gap:8,flexWrap:'wrap',margin:'40px 0 48px'}}>{tags.map(t=><Tag key={t} selected={t===tag} onClick={()=>setTag(t)}>{t}</Tag>)}</div>
-    {f&&<div onClick={()=>open(f.slug)} style={{display:'grid',gridTemplateColumns:'minmax(0,1.2fr) minmax(0,1fr)',gap:40,alignItems:'end',cursor:'pointer',marginBottom:56}}>
+    <div style={{display:'flex',gap:8,flexWrap:m?'nowrap':'wrap',overflowX:'auto',scrollbarWidth:'none',margin:m?'24px -16px 32px':'40px 0 48px',padding:m?'0 16px':0}}>{tags.map(t=><Tag key={t} selected={t===tag} onClick={()=>setTag(t)}>{t}</Tag>)}</div>
+    {f&&<div onClick={()=>open(f.slug)} style={{display:'grid',gridTemplateColumns:bp==='desktop'?'minmax(0,1.2fr) minmax(0,1fr)':'1fr',gap:m?20:40,alignItems:'end',cursor:'pointer',marginBottom:56}}>
       <Placeholder label="Feature image" ratio="16/10" tone="var(--accent-soft)"/>
       <div><div style={{display:'flex',gap:10,marginBottom:16}}><Badge tone="solid">Featured</Badge><Badge>{f.tag}</Badge></div>
         <Display size={56} as="h2">{f.title}</Display><p style={{fontSize:18,color:'var(--fg-2)',lineHeight:1.6,margin:'20px 0'}}>{f.ex}</p><Overline>{f.date} · {f.read}</Overline></div></div>}
-    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'40px 24px'}}>
+    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,260px),1fr))',gap:'40px 24px'}}>
       {rest.map(p=><Card key={p.slug} variant="rule" onClick={()=>open(p.slug)} eyebrow={p.date+' · '+p.tag} title={p.title} footer={<Overline>{p.read}</Overline>}>{p.ex}</Card>)}
     </div>
   </div>;
 }
 function BlogPost({slug,back}){
   const p=window.blogPosts.find(x=>x.slug===slug)||window.blogPosts[0];
-  const P={fontSize:18,lineHeight:1.75,color:'var(--fg-1)',margin:'0 0 24px',textWrap:'pretty'};
-  return <article style={{...kitWrap,maxWidth:820,paddingTop:48}}>
+  const m=useBp()==='mobile';const P={fontSize:m?17:18,lineHeight:1.75,color:'var(--fg-1)',margin:'0 0 24px',textWrap:'pretty'};
+  return <article style={{...kitWrap,maxWidth:820,paddingTop:m?24:48}}>
     <Button variant="quiet" icon="arrow-left" onClick={back}>Journal</Button>
     <div style={{display:'flex',gap:10,margin:'40px 0 20px'}}><Badge tone="accent">{p.tag}</Badge><Badge>{p.read}</Badge></div>
     <Display size={84}>{p.title}</Display>

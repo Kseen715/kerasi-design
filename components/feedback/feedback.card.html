@@ -1,17 +1,27 @@
-<!-- @dsCard group="Components" viewport="700x330" name="Feedback" subtitle="Dialog, toast, tooltip" -->
+<!-- @dsCard group="Components" viewport="700x400" name="Feedback" subtitle="Dialog, toast, tooltip" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../_ds_bundle.js"></script>
-<style>body{padding:24px}.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.col{display:grid;gap:18px}.m{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);width:70px}</style></head><body><div id="root"></div>
+<style>html,body{margin:0;background:var(--bg)}body{padding:24px}.m{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}.cell{display:flex;flex-direction:column;gap:10px;min-width:0}</style></head><body><div id="root"></div>
 <script type="text/babel">
 const NS=window.KerasiDesignSystem_6c0512;
 const {Dialog,Toast,Tooltip,Button,IconButton}=NS;
-function App(){return <div style={{display:'grid',gridTemplateColumns:'1.1fr 1fr',gap:24,alignItems:'start'}}>
-<Dialog inline open width={340} eyebrow="Branch" title="Delete release/spring?" onClose={()=>{}} actions={<><Button variant="ghost" size="sm">Cancel</Button><Button size="sm">Delete</Button></>}>This removes 14 commits not merged into main.</Dialog>
-<div className="col"><Toast tone="success" title="Deployed" onClose={()=>{}}>kerasi.studio is live — 42s</Toast><Toast tone="danger" title="Build failed">Step 3 · lint</Toast>
-<div className="row" style={{paddingTop:30,gap:30}}><Tooltip label="Copy SHA" open><IconButton icon="copy" label="Copy" variant="outline"/></Tooltip><Tooltip label="Hover me"><Button variant="secondary" size="sm">Hover</Button></Tooltip></div></div>
+function App(){return <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) minmax(0,1fr)',gap:24,alignItems:'stretch'}}>
+<div className="cell"><span className="m">Dialog</span>
+<Dialog inline open width="100%" eyebrow="Branch" title="Delete release/spring?" onClose={()=>{}} actions={<><Button variant="ghost" size="sm">Cancel</Button><Button size="sm">Delete</Button></>}>This removes 14 commits not merged into main.</Dialog></div>
+<div style={{display:'flex',flexDirection:'column',gap:20,minWidth:0}}>
+<div className="cell"><span className="m">Toast</span>
+<Toast tone="success" title="Deployed" onClose={()=>{}} style={{width:'auto'}}>kerasi.studio is live — 42s</Toast>
+<Toast tone="danger" title="Build failed" style={{width:'auto'}}>Step 3 · lint</Toast></div>
+<div className="cell"><span className="m">Tooltip</span>
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,minmax(0,1fr))',alignItems:'end',justifyItems:'center',gap:12,padding:'48px 0 16px',borderTop:'1px solid var(--line)',background:'var(--bg-sunken)'}}>
+<Tooltip label="Copy SHA" open><IconButton icon="copy" label="Copy SHA" variant="outline" size={40}/></Tooltip>
+<Tooltip label="a3f9c21" open><Button variant="secondary" size="sm" icon="git-commit-horizontal">Commit</Button></Tooltip>
+<Tooltip label="Share link" open><IconButton icon="share-2" label="Share" variant="outline" size={40}/></Tooltip>
+</div></div>
+</div>
 </div>}
 ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
 </script></body></html>

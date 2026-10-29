@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Ultrawide code workspace (21:9)" description="2560×1080 no-scroll code review: files, code and review in a centred 1720px focus zone; build status and branch timeline as glance-only rails" -->
+<helmet><script src="./ds-base.js"></script><style>html,body{margin:0}</style></helmet>
+<div data-theme="{{ theme }}" style="position:relative;height:100vh;min-height:900px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);grid-template-rows:72px minmax(0,1fr);background:var(--bg);color:var(--fg-1);font-family:var(--font-body);overflow:hidden">
+<header style="grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);border-bottom:1px solid var(--line)">
+<div></div>
+<div style="display:flex;align-items:center;gap:28px;padding:0 40px;min-width:0">
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Favicon" variant="sub" label="G" color="graphite" size="{{ 32 }}" hint-size="32px,32px"></x-import>
+<span style="font-family:var(--font-mono);font-size:15px;white-space:nowrap"><span style="color:var(--fg-3)">kerasi /</span> <b>hanami</b></span>
+<div style="flex:1;display:flex;justify-content:center;align-self:stretch;align-items:flex-end;min-width:0;margin-bottom:-1px"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Tabs" items="{{ tabs }}" default-value="pulls" size="lg" hint-size="560px,52px"></x-import></div>
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" variant="secondary" size="sm" icon="git-branch" hint-size="150px,34px">feat/tabs-lg</x-import>
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" size="sm" icon="check" hint-size="110px,34px">Approve</x-import>
+</div>
+<div></div>
+</header>
+<aside style="grid-row:2;display:flex;justify-content:flex-end;padding:40px 40px 40px 24px;min-width:0;overflow:hidden">
+<sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><div style="width:100%;max-width:320px;display:flex;flex-direction:column;gap:24px">
+<div style="padding:24px;background:var(--status-success);color:#fff"><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:10px">Checks · #128</div><div style="font-family:var(--font-display);font-weight:600;font-size:56px;line-height:.9;text-transform:uppercase">Passing</div><div style="font-family:var(--font-mono);font-size:13px;margin-top:10px">3m 04s total</div></div>
+<div style="border-top:2px solid var(--fg-1)"><sc-for list="{{ checks }}" as="c" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:12px;height:52px;border-bottom:1px solid var(--line)"><span style="width:10px;height:10px;background:var(--status-success);flex:none"></span><span style="flex:1;font-family:var(--font-display);font-weight:500;font-size:20px;text-transform:uppercase;letter-spacing:.03em">{{ c.name }}</span><span style="font-family:var(--font-mono);font-size:13px;color:var(--fg-2)">{{ c.t }}</span></div></sc-for></div>
+</div></sc-if>
+</aside>
+<main style="grid-row:2;grid-column:2;display:grid;grid-template-columns:280px minmax(0,1fr) 400px;gap:24px;padding:24px 40px 32px;min-width:0;min-height:0">
+<nav style="display:flex;flex-direction:column;border:1px solid var(--line);background:var(--bg-raised);min-height:0;overflow:auto">
+<div style="padding:16px 16px 12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);border-bottom:1px solid var(--line)">Changed files · 6</div>
+<sc-for list="{{ files }}" as="f" hint-placeholder-count="8"><a style="text-decoration:none;position:relative;display:flex;align-items:center;gap:10px;min-height:40px;padding:0 16px;font-family:var(--font-mono);font-size:13px;color:var(--fg-1);cursor:pointer"><sc-if value="{{ f.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;background:var(--accent-soft);box-shadow:inset 2px 0 0 var(--accent)"></span></sc-if><sc-for list="{{ f.indent }}" as="x" hint-placeholder-count="0"><span style="width:8px;flex:none"></span></sc-for><span style="position:relative;display:inline-flex"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Icon" name="{{ f.icon }}" size="{{ 15 }}" hint-size="15px,15px"></x-import></span><span style="position:relative;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ f.name }}</span><span style="position:relative;font-size:11px;color:var(--status-success)">{{ f.add }}</span><span style="position:relative;font-size:11px;color:var(--status-danger)">{{ f.del }}</span></a></sc-for>
+</nav>
+<section style="display:flex;flex-direction:column;gap:16px;min-width:0;min-height:0">
+<div style="display:flex;align-items:baseline;gap:16px;min-width:0"><h1 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:40px;line-height:1;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Tabs: lg size, full-width hit area</h1><span style="font-family:var(--font-mono);font-size:14px;color:var(--fg-3)">#128</span><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Badge" tone="success" dot="{{ true }}" hint-size="70px,22px">Open</x-import></div>
+<div style="flex:1;min-height:0;position:relative"><div style="position:absolute;inset:0;overflow:auto"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.CodeBlock" language="tsx" title="components/navigation/Tabs.jsx" code="{{ code }}" highlight-lines="{{ hl }}" hint-size="100%,600px"></x-import></div></div>
+</section>
+<aside style="display:flex;flex-direction:column;gap:20px;min-height:0;overflow:auto">
+<div style="border:1px solid var(--line);background:var(--bg-raised);padding:20px"><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);margin-bottom:14px">Reviewers</div><sc-for list="{{ reviewers }}" as="r" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;height:44px"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--bg-sunken);font-family:var(--font-display);font-weight:600;font-size:15px">{{ r.i }}</span><span style="flex:1;font-size:15px;font-weight:600">{{ r.name }}</span><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Badge" tone="{{ r.tone }}" hint-size="80px,22px">{{ r.state }}</x-import></div></sc-for></div>
+<div style="border:1px solid var(--line);background:var(--bg-raised);padding:20px;display:flex;flex-direction:column;gap:14px"><div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)">Comments · 2</div>
+<sc-for list="{{ comments }}" as="c" hint-placeholder-count="2"><div style="padding-bottom:14px;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px"><b>{{ c.who }}</b><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-3)">{{ c.where }}</span></div><p style="margin:0;font-size:15px;line-height:1.5;color:var(--fg-2)">{{ c.text }}</p></div></sc-for>
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Input" placeholder="Reply…" hint-size="100%,42px"></x-import>
+</div>
+<div style="display:flex;gap:10px"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" full="{{ true }}" icon="git-merge" hint-size="100%,42px">Merge</x-import><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" full="{{ true }}" variant="secondary" hint-size="100%,42px">Request changes</x-import></div>
+</aside>
+</main>
+<aside style="grid-row:2;grid-column:3;display:flex;justify-content:flex-start;padding:40px 24px 40px 40px;min-width:0;overflow:hidden">
+<sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><div style="width:100%;max-width:320px;display:flex;flex-direction:column">
+<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);padding-bottom:12px;border-bottom:2px solid var(--fg-1)">feat/tabs-lg · 5 commits</div>
+<sc-for list="{{ commits }}" as="c" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:14px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)"><span style="position:relative;width:14px;height:14px;margin-top:4px;background:var(--line-strong)"><sc-if value="{{ c.head }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;background:var(--accent)"></span></sc-if></span><div style="min-width:0"><div style="font-size:16px;font-weight:600;line-height:1.35">{{ c.msg }}</div><div style="font-family:var(--font-mono);font-size:12px;color:var(--fg-3);margin-top:4px">{{ c.sha }} · {{ c.t }}</div></div></div></sc-for>
+</div></sc-if>
+</aside>
+<sc-if value="{{ guides }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;pointer-events:none;z-index:40"><div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(1720px,100%);border-left:2px dashed var(--accent);border-right:2px dashed var(--accent)"><span style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);padding:6px 10px;background:var(--accent);color:var(--accent-fg);font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Focus zone · 1720px · read and act here</span></div></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2560,&quot;height&quot;:1080},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sakura&quot;,&quot;sakura-dark&quot;,&quot;wine&quot;,&quot;wine-dark&quot;,&quot;rust&quot;,&quot;rust-dark&quot;],&quot;default&quot;:&quot;rust&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ultrawide&quot;},&quot;rails&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Ultrawide&quot;},&quot;guides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Ultrawide&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const code=`import React from 'react';
+
+function Tab({ on, size, onClick, children }) {
+  const [hover, setHover] = React.useState(false);
+  return (
+    <button
+      role="tab"
+      aria-selected={on}
+      onClick={onClick}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        position: 'relative',
+        minHeight: size === 'lg' ? 52 : 44,
+        minWidth: size === 'lg' ? 72 : 56,
+        padding: size === 'lg' ? '0 20px' : '0 16px',
+        background: hover && !on ? 'var(--bg-sunken)' : 'transparent',
+      }}
+    >
+      {children}
+      <span aria-hidden="true" style={{ position: 'absolute', left: 0, right: 0,
+        bottom: 0, height: 2, background: on ? 'var(--accent)' : 'transparent' }} />
+    </button>
+  );
+}
+
+export function Tabs({ items = [], value, onChange, size = 'md' }) {
+  return (
+    <div role="tablist" style={{ display: 'flex', gap: 2,
+      borderBottom: '1px solid var(--line)', overflowX: 'auto' }}>
+      {items.map((it) => (
+        <Tab key={it.id} on={it.id === value} size={size}
+          onClick={() => onChange?.(it.id)}>{it.label}</Tab>
+      ))}
+    </div>
+  );
+}`;
+    const sel='components/navigation/Tabs.jsx';
+    const F=[['folder','components',0,'',''],['folder','navigation',1,'',''],['file-code','Tabs.jsx',2,'+24','−9'],['file-text','Tabs.d.ts',2,'+2',''],['folder','core',1,'',''],['file-code','Tag.jsx',2,'+6','−3'],['file-code','Icon.jsx',2,'+1','−1'],['file-text','readme.md',0,'+8','']];
+    return {
+      theme:this.props.theme ?? 'rust', rails:this.props.rails ?? true, guides:this.props.guides ?? false,
+      tabs:[{id:'code',label:'Code'},{id:'pulls',label:'Pull requests',count:2},{id:'issues',label:'Issues',count:3},{id:'actions',label:'Actions'}],
+      code, hl:[13,14,15,16],
+      files:F.map(([icon,name,d,add,del])=>{const on=name==='Tabs.jsx';return {icon,name,add,del,on,indent:Array.from({length:d*2},(_,i)=>i)};}),
+      checks:[{name:'Lint',t:'38s'},{name:'Typecheck',t:'52s'},{name:'Test',t:'1m 40s'},{name:'Build',t:'14s'}],
+      reviewers:[{i:'M',name:'Mira',state:'Approved',tone:'success'},{i:'N',name:'Nikos',state:'Approved',tone:'success'},{i:'E',name:'Eleni',state:'Pending',tone:'neutral'}],
+      comments:[{who:'Mira',where:'L13',text:'52px for lg matches the header height. Good.'},{who:'Nikos',where:'L23',text:'Underline as a span fixes the leak at the border.'}],
+      commits:[{msg:'feat(tabs): lg size',sha:'a3f9c21',t:'4 min',head:true},{msg:'fix(tabs): underline as span',sha:'7d01b9e',t:'1 h'},{msg:'feat(tag): button when clickable',sha:'c45e2a0',t:'2 h'},{msg:'fix(icon): strip comments',sha:'9be1e07',t:'3 h'},{msg:'docs: tabs hit area',sha:'1f8a6d3',t:'3 h'}]
+    };
+  }
+}
+</script>
+</body>
+</html>

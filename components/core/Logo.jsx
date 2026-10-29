@@ -5,7 +5,7 @@ const C={
   wine:{sun:'#773344',ground:'#191716',groundHi:'#2E2926',trunk:'#4A3A36',trunkSh:'#2E2926',bloom:'#D9C7A0',bloomHi:'#EADDBF',bloomSh:'#C2A878',cord:'#C2A878',lantern:'#C2A878'},
   rust:{sun:'#B7472A',ground:'#20252B',groundHi:'#343B43',trunk:'#4B535C',trunkSh:'#20252B',bloom:'#8E99A3',bloomHi:'#B4BDC5',bloomSh:'#6B7782',cord:'#6B737C',lantern:'#B7472A'},
   'sakura-dark':{sun:'#D8394A',ground:'#B07A62',groundHi:'#C48C72',trunk:'#D6A588',trunkSh:'#B07A62',bloom:'#EFBCC5',bloomHi:'#F7D9DE',bloomSh:'#E3909E',cord:'#BDA177',lantern:'#ECC483'},
-  'wine-dark':{sun:'#B2475F',ground:'#8A7A70',groundHi:'#A8978A',trunk:'#C2B0A0',trunkSh:'#A8978A',bloom:'#D9C7A0',bloomHi:'#EADDBF',bloomSh:'#C2A878',cord:'#C2A878',lantern:'#C2A878'},
+  'wine-dark':{sun:'#B2475F',ground:'#A86A7A',groundHi:'#C08494',trunk:'#CFC5B4',trunkSh:'#A89E8E',bloom:'#EEC567',bloomHi:'#F7D688',bloomSh:'#D4A848',cord:'#D4A848',lantern:'#F7D688'},
   'rust-dark':{sun:'#E0603F',ground:'#7E8790',groundHi:'#9AA2AA',trunk:'#B5BCC2',trunkSh:'#9AA2AA',bloom:'#D5D9DB',bloomHi:'#E8EBEC',bloomSh:'#BFC4C7',cord:'#8E959B',lantern:'#E0603F'},
 };
 const THEMES=['sakura','wine','rust','sakura-dark','wine-dark','rust-dark'];

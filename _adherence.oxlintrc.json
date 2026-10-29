@@ -91,8 +91,8 @@
         "message": "<CodeBlock> theme must be one of 'sakura' | 'sakura-dark' | 'wine' | 'wine-dark' | 'rust' | 'rust-dark'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='Dialog'] > JSXAttribute > JSXIdentifier[name!=/^(?:open|title|eyebrow|children|actions|onClose|width|inline|key|ref|className|style|children)$/]",
-        "message": "<Dialog> doesn't accept that prop. Declared props: open, title, eyebrow, children, actions, onClose, width, inline."
+        "selector": "JSXOpeningElement[name.name='Dialog'] > JSXAttribute > JSXIdentifier[name!=/^(?:open|title|eyebrow|children|actions|onClose|width|inline|sheet|key|ref|className|style|children)$/]",
+        "message": "<Dialog> doesn't accept that prop. Declared props: open, title, eyebrow, children, actions, onClose, width, inline, sheet."
       },
       {
         "selector": "JSXOpeningElement[name.name='Favicon'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|label|color|ground|size|style|key|ref|className|style|children)$/]",
@@ -163,12 +163,16 @@
         "message": "<Toast> tone must be one of 'info' | 'success' | 'warning' | 'danger' | 'accent'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|children|placement|open|key|ref|className|style|children)$/]",
-        "message": "<Tooltip> doesn't accept that prop. Declared props: label, children, placement, open."
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|children|placement|align|open|key|ref|className|style|children)$/]",
+        "message": "<Tooltip> doesn't accept that prop. Declared props: label, children, placement, align, open."
       },
       {
         "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute[name.name='placement'] > Literal[value!=/^(?:top|bottom)$/]",
         "message": "<Tooltip> placement must be one of 'top' | 'bottom'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:center|start|end)$/]",
+        "message": "<Tooltip> align must be one of 'center' | 'start' | 'end'."
       }
     ]
   },

@@ -43,6 +43,21 @@ Components only read semantic tokens (`--bg`, `--bg-raised`, `--bg-sunken`, `--f
 ## Code & syntax
 Every theme has its own syntax palette (`tokens/syntax.css`, `--syn-*`): bg, fg, comment (italic), keyword (theme accent, 500), string, number, function (600), type, property, operator, punct, tag, attr, lineno, line-hl, added, removed, border. Light palettes keep every token ≥4.5:1 on `--syn-bg`. Keywords always carry the theme accent; strings take the "natural" counter-colour (moss in Sakura, aged gold in Wine, steel in Rust). Use `<CodeBlock theme="…-dark">` to put a dark block on a light page.
 
+## Responsive
+Breakpoints: **mobile <640**, **tablet 640–1023**, **desktop ≥1024** (`useBp()` in `ui_kits/kerasi/Kit.jsx`). Display type is fluid (`clamp(min, size/14.4 vw, size)`); page gutters `clamp(16px,4vw,32px)`.
+- **Mobile:** header → logo + menu button → full-width nav list (56px rows) with theme chips; primary actions full width, size `lg`; touch targets ≥44px; chip rows scroll sideways edge to edge; grids collapse to 1 column (stats 2); secondary columns hidden; wide diagrams scroll; Dialog becomes a bottom sheet with stacked actions (automatic <640px, `sheet` prop overrides); toasts span the width 12px from the edges.
+- **Tablet:** inline nav, mark without wordmark; 2-column grids; sidebars drop below content.
+- Preview: `ui_kits/kerasi/devices.html` shows every page + Elements at 390 and 820, live. `elements.html` shows all components at the current width.
+
+## Ultrawide (21:9)
+Goal: the user never turns their head. Templates in `templates/ultrawide-*` (2560×1080 preview, also hold at 3440×1440).
+- **Focus zone:** one centred column, max **1720px** (≈35° of view on a 29–34" ultrawide at arm's length). Everything that must be read word by word or clicked goes here: nav, actions, tables, charts, code, body copy.
+- **Rails** (space either side): glance-only. Big numerals, status colour blocks, short activity lines, decorative mark/palette. Rail content hugs the inner edge (right-aligned on the left rail, left-aligned on the right), max 340px wide. Nothing in a rail is required to complete a task, and `rails=false` must still leave a complete page.
+- **Header:** logo, nav and primary action sit inside the focus zone, not in the screen corners. The header's bottom line runs full width.
+- **Fit to height:** dashboards and workspaces fill 1080px without page scroll; panels scroll internally.
+- **Line length:** body copy ≤ 62ch even inside the focus zone; split wide areas into columns rather than stretching text.
+- Tweaks on every template: `theme`, `rails`, `guides` (dashed overlay showing the focus zone).
+
 ## CONTENT FUNDAMENTALS
 - **Voice:** calm, precise, a little botanical. Short declarative sentences. Metaphors come from the orchard (roots, pruning, bloom, seasons, lanterns) — used once per surface, never stacked.
 - **Person:** "we" for the studio, "you" for the reader. No exclamation marks.

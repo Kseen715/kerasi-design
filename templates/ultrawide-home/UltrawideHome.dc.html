@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Ultrawide main page (21:9)" description="2560×1080 landing page: copy and actions in a centred 1720px focus zone, rails carry section numerals and palette — nothing to read at the edges" -->
+<helmet><script src="./ds-base.js"></script><style>html,body{margin:0}</style></helmet>
+<div data-theme="{{ theme }}" style="position:relative;min-height:100vh;background:var(--bg);color:var(--fg-1);font-family:var(--font-body)">
+<header style="position:sticky;top:0;z-index:20;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);height:72px;background:var(--bg);border-bottom:1px solid var(--line)">
+<div></div>
+<div style="display:flex;align-items:center;gap:40px;padding:0 40px;min-width:0">
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Logo" size="{{ 30 }}" hint-size="140px,30px"></x-import>
+<nav style="display:flex;gap:4px;flex:1;justify-content:center"><sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a style="text-decoration:none;padding:0 18px;line-height:72px;font-family:var(--font-display);font-weight:500;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-1);cursor:pointer">{{ n }}</a></sc-for></nav>
+<x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" size="sm" icon-right="arrow-right" hint-size="160px,34px">Start a project</x-import>
+</div>
+<div></div>
+</header>
+<section style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);min-height:calc(100vh - 72px)">
+<div style="display:flex;justify-content:flex-end;align-items:flex-end;padding:0 40px 64px;overflow:hidden;min-width:0"><sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><div style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-display);font-weight:600;font-size:64px;letter-spacing:.08em;text-transform:uppercase;color:var(--line-strong);line-height:1">Κεράσι · Cherry</div></sc-if></div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 560px;align-items:center;gap:64px;padding:64px 40px;min-width:0">
+<div style="display:flex;flex-direction:column;gap:32px;min-width:0">
+<span style="font-family:var(--font-mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)">01 — Kerasi studio</span>
+<h1 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:176px;line-height:.88;letter-spacing:-.01em;text-transform:uppercase;text-wrap:balance">Grown slowly, cut sharp</h1>
+<p style="margin:0;max-width:62ch;font-size:22px;line-height:1.55;color:var(--fg-2);text-wrap:pretty">Design systems, tools and small software for people who build things carefully. Open source where it can be.</p>
+<div style="display:flex;gap:12px"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" size="lg" icon-right="arrow-right" hint-size="200px,52px">See projects</x-import><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" size="lg" variant="secondary" hint-size="180px,52px">Read the journal</x-import></div>
+</div>
+<div style="display:flex;justify-content:center"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Mark" size="{{ 520 }}" hint-size="520px,520px"></x-import></div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:center;padding:64px 0;min-width:0;overflow:hidden"><sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-direction:column;width:100%;max-width:280px;height:60vh"><span style="flex:3;background:var(--accent)"></span><span style="flex:2;background:var(--accent-2)"></span><span style="flex:1;background:var(--accent-3)"></span><span style="flex:1;background:var(--fg-1)"></span></div></sc-if></div>
+</section>
+<section style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);border-top:2px solid var(--fg-1)">
+<div style="display:flex;justify-content:flex-end;padding:56px 40px;overflow:hidden;min-width:0"><sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><span style="font-family:var(--font-display);font-weight:600;font-size:200px;line-height:.8;color:var(--line-strong)">02</span></sc-if></div>
+<div style="padding:56px 40px 96px;min-width:0">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:40px"><h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:88px;line-height:.9;text-transform:uppercase">Projects</h2><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" variant="quiet" icon-right="arrow-right" hint-size="120px,42px">All projects</x-import></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px"><sc-for list="{{ projects }}" as="p" hint-placeholder-count="4"><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Card" variant="cut" padding="{{ 32 }}" eyebrow="{{ p.eyebrow }}" title="{{ p.title }}" hint-size="100%,240px">{{ p.text }}</x-import></sc-for></div>
+</div>
+<div></div>
+</section>
+<section style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);border-top:2px solid var(--fg-1);background:var(--bg-sunken)">
+<div style="display:flex;justify-content:flex-end;padding:56px 40px;overflow:hidden;min-width:0"><sc-if value="{{ rails }}" hint-placeholder-val="{{ true }}"><span style="font-family:var(--font-display);font-weight:600;font-size:200px;line-height:.8;color:var(--line-strong)">03</span></sc-if></div>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 480px;gap:80px;padding:56px 40px 96px;min-width:0">
+<div style="min-width:0"><h2 style="margin:0 0 32px;font-family:var(--font-display);font-weight:600;font-size:88px;line-height:.9;text-transform:uppercase">Journal</h2>
+<sc-for list="{{ posts }}" as="j" hint-placeholder-count="3"><a style="text-decoration:none;display:grid;grid-template-columns:160px minmax(0,1fr) 140px;align-items:baseline;gap:32px;padding:24px 0;border-bottom:1px solid var(--line-strong);color:var(--fg-1);cursor:pointer"><span style="font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3)">{{ j.date }}</span><span style="font-family:var(--font-display);font-weight:500;font-size:36px;line-height:1.05;text-transform:uppercase">{{ j.title }}</span><span style="font-family:var(--font-mono);font-size:13px;color:var(--accent-ink);text-align:right">{{ j.tag }}</span></a></sc-for>
+</div>
+<div style="align-self:end;display:flex;flex-direction:column;gap:16px;padding:32px;background:var(--bg-raised);border:1px solid var(--line)"><span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)">Newsletter · monthly</span><p style="margin:0;font-size:18px;line-height:1.5;color:var(--fg-2)">One email when something ships. No tracking pixels.</p><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Input" placeholder="you@studio.gr" icon="mail" hint-size="100%,42px"></x-import><x-import component-from-global-scope="KerasiDesignSystem_6c0512.Button" full="{{ true }}" hint-size="100%,42px">Subscribe</x-import></div>
+</div>
+<div></div>
+</section>
+<footer style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1720px) minmax(0,1fr);border-top:1px solid var(--line)"><div></div><div style="display:flex;align-items:center;justify-content:space-between;gap:24px;height:88px;padding:0 40px;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3)"><span>© 2026 Kerasi</span><span style="display:flex;gap:28px"><a style="text-decoration:none;color:var(--fg-2)">Git</a><a style="text-decoration:none;color:var(--fg-2)">Journal</a><a style="text-decoration:none;color:var(--fg-2)">Contact</a></span></div><div></div></footer>
+<sc-if value="{{ guides }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;inset:0;pointer-events:none;z-index:40"><div style="position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(1720px,100%);border-left:2px dashed var(--accent);border-right:2px dashed var(--accent)"><span style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);padding:6px 10px;background:var(--accent);color:var(--accent-fg);font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Focus zone · 1720px · read and act here</span></div></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2560,&quot;height&quot;:1080},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sakura&quot;,&quot;sakura-dark&quot;,&quot;wine&quot;,&quot;wine-dark&quot;,&quot;rust&quot;,&quot;rust-dark&quot;],&quot;default&quot;:&quot;sakura&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ultrawide&quot;},&quot;rails&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Ultrawide&quot;},&quot;guides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Ultrawide&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      theme:this.props.theme ?? 'sakura', rails:this.props.rails ?? true, guides:this.props.guides ?? false,
+      nav:['Projects','Journal','Code','Gallery','About'],
+      projects:[
+        {eyebrow:'01 — Open source',title:'Hanami UI',text:'A component library for quiet, seasonal interfaces.'},
+        {eyebrow:'02 — Docs',title:'Bark',text:'Documentation that reads like a field guide.'},
+        {eyebrow:'03 — Analytics',title:'Lantern',text:'Cookie-free visit counts. One script, no banner.'},
+        {eyebrow:'04 — Hosting',title:'git.kerasi',text:'Self-hosted repositories for the studio.'}],
+      posts:[
+        {date:'Oct 21, 2026',title:'Pruning the build pipeline',tag:'Engineering'},
+        {date:'Oct 02, 2026',title:'Three themes from one tree',tag:'Design'},
+        {date:'Sep 14, 2026',title:'Tokens before components',tag:'Notes'}]
+    };
+  }
+}
+</script>
+</body>
+</html>

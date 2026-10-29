@@ -1,0 +1,27 @@
+<!-- @dsCard group="Kerasi Web" viewport="1440x900" name="Mobile & tablet" subtitle="Every page + all elements at 390px phone and 820px tablet — live, scrollable" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Kerasi — devices</title><link rel="icon" type="image/svg+xml" href="../../assets/favicon/kerasi-favicon.svg"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;background:var(--bg-sunken);color:var(--fg-1);font-family:var(--font-body)}a{color:var(--accent-ink)}a:hover{color:var(--accent)}
+.bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 24px;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar button{min-height:40px;padding:0 16px;border:1px solid var(--line-strong);background:transparent;color:var(--fg-2);font:500 13px var(--font-display);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}.bar button.on{background:var(--fg-1);color:var(--bg);border-color:var(--fg-1)}
+.lbl{font:10px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.sec{padding:32px 24px 8px}.sec h2{font:600 32px/1 var(--font-display);text-transform:uppercase;margin:0 0 20px}
+.row{display:flex;gap:28px;overflow-x:auto;padding-bottom:24px}
+.dev{flex:none;display:flex;flex-direction:column;gap:10px}
+.frame{background:#111;padding:10px;box-shadow:0 20px 40px -20px rgba(0,0,0,.35)}
+.frame>div{overflow:hidden;background:var(--bg)}.frame iframe{border:0;display:block;transform-origin:0 0}
+.phone .frame{border-radius:38px}.phone .frame>div{border-radius:28px;width:292px;height:633px}.phone iframe{width:390px;height:844px;transform:scale(.75)}
+.tablet .frame{border-radius:28px;padding:14px}.tablet .frame>div{border-radius:14px;width:451px;height:649px}.tablet iframe{width:820px;height:1180px;transform:scale(.55)}
+.cap{display:flex;justify-content:space-between;align-items:baseline}.cap b{font:500 15px var(--font-display);text-transform:uppercase;letter-spacing:.04em}</style></head><body>
+<div class="bar"><span class="lbl" style="margin-right:8px">Theme</span><span id="themes" style="display:flex;gap:6px;flex-wrap:wrap"></span><span style="flex:1"></span><span class="lbl">Frames are live — scroll and click inside</span></div>
+<div class="sec"><h2>Phone · 390</h2><div class="row" id="phone"></div></div>
+<div class="sec"><h2>Tablet · 820</h2><div class="row" id="tablet"></div></div>
+<script>
+const P=[["home","Home"],["blog","Journal"],["git","Code"],["dashboard","Dashboard"],["diagrams","Diagrams"],["gallery","Gallery"],["elements","Elements"]];const T=['sakura','sakura-dark','wine','wine-dark','rust','rust-dark'];
+let theme=localStorage.getItem('kerasi-devices-theme')||'sakura';
+function src(r){return 'index.html?route='+r+'&theme='+theme;}
+function build(){document.documentElement.setAttribute('data-theme',theme);
+ for(const k of ['phone','tablet'])document.getElementById(k).innerHTML=P.map(([r,l])=>'<div class="dev '+k+'"><div class="frame"><div><iframe loading="lazy" title="'+l+' '+k+'" src="'+src(r)+'"></iframe></div></div><div class="cap"><b>'+l+'</b><a class="lbl" href="'+src(r)+'" target="_blank">open</a></div></div>').join('');
+ themes.innerHTML=T.map(t=>'<button class="'+(t===theme?'on':'')+'" data-t="'+t+'">'+t+'</button>').join('');}
+themes.onclick=e=>{const t=e.target.dataset.t;if(t){theme=t;localStorage.setItem('kerasi-devices-theme',t);build();}};
+build();
+</script></body></html>

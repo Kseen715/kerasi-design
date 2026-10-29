@@ -12,32 +12,32 @@ const gitIssues=[
   {n:137,t:'Switch knob jumps in Safari',l:'bug',s:'open',a:'3d'},
   {n:131,t:'Document wine-dark contrast',l:'docs',s:'closed',a:'1w'},
 ];
-function GitScreen(){
+function GitScreen(){const bp=useBp();const m=bp==='mobile';
   const [tab,setTab]=React.useState('code');
   const [toast,setToast]=React.useState(false);
   return <div style={{...kitWrap,paddingTop:40}}>
     <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',gap:24,flexWrap:'wrap',marginBottom:24}}>
       <div><Overline style={{marginBottom:10}}>kerasi / public</Overline><Display size={64}>Hanami-ui</Display><p style={{color:'var(--fg-2)',margin:'14px 0 0',fontSize:16}}>A component library for quiet, seasonal interfaces.</p></div>
-      <div style={{display:'flex',gap:8}}><Button variant="secondary" size="sm" icon="eye">Watch · 48</Button><Button variant="secondary" size="sm" icon="star">Star · 1.2k</Button><Button size="sm" icon="git-fork">Fork</Button></div>
+      <div style={{display:'flex',gap:8,flexWrap:'wrap'}}><Button variant="secondary" size="sm" icon="eye">Watch · 48</Button><Button variant="secondary" size="sm" icon="star">Star · 1.2k</Button><Button size="sm" icon="git-fork">Fork</Button></div>
     </div>
     <Tabs size="lg" value={tab} onChange={setTab} items={[{id:'code',label:'Code'},{id:'issues',label:'Issues',count:3},{id:'pulls',label:'Pull requests',count:2},{id:'actions',label:'Actions'}]}/>
-    <div style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) 280px',gap:40,marginTop:28}}>
+    <div style={{display:'grid',gridTemplateColumns:bp==='desktop'?'minmax(0,1fr) 280px':'minmax(0,1fr)',gap:40,marginTop:28}}>
       <div>
         {tab==='code'&&<>
           <div style={{display:'flex',gap:10,alignItems:'center',marginBottom:16,flexWrap:'wrap'}}>
-            <Select options={['main','release/spring','feat/tabs-lg']} style={{width:200}}/>
-            <Overline>3 branches · 14 tags</Overline><div style={{flex:1}}/>
-            <Input placeholder="Go to file" icon="search" style={{width:200}}/>
+            <Select options={['main','release/spring','feat/tabs-lg']} style={{width:m?'calc(100% - 96px)':200}}/>
+            {!m&&<Overline>3 branches · 14 tags</Overline>}{!m&&<div style={{flex:1}}/>}
+            {m?null:<Input placeholder="Go to file" icon="search" style={{width:200}}/>}
             <Button size="sm" icon="copy" onClick={()=>{setToast(true);setTimeout(()=>setToast(false),2200);}}>Clone</Button>
           </div>
           <div style={{border:'1px solid var(--line)'}}>
-            <div style={{display:'flex',alignItems:'center',gap:12,padding:'12px 16px',background:'var(--bg-sunken)',fontSize:13}}><span style={{width:22,height:22,borderRadius:'50%',background:'var(--accent)'}}/><b>mira</b><span style={{color:'var(--fg-2)'}}>feat(tabs): lg size</span><div style={{flex:1}}/><code style={{fontFamily:'var(--font-mono)',fontSize:12,color:'var(--accent-ink)'}}>a83f2c1</code><span style={{color:'var(--fg-3)'}}>5h</span><Badge tone="success" dot>Passing</Badge></div>
-            {gitFiles.map(([k,n,m,d])=><div key={n} style={{display:'grid',gridTemplateColumns:'24px 200px minmax(0,1fr) 110px',gap:12,alignItems:'center',padding:'11px 16px',borderTop:'1px solid var(--line)',fontSize:14}}>
-              <Icon name={k} size={16} color={k==='folder'?'var(--accent-2)':'var(--fg-3)'}/><span style={{fontWeight:500}}>{n}</span><span style={{color:'var(--fg-2)',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{m}</span><span style={{color:'var(--fg-3)',textAlign:'right',fontSize:13}}>{d}</span></div>)}
+            <div style={{display:'flex',alignItems:'center',gap:12,padding:'12px 16px',background:'var(--bg-sunken)',fontSize:13}}><span style={{width:22,height:22,borderRadius:'50%',background:'var(--accent)'}}/><b>mira</b>{!m&&<span style={{color:'var(--fg-2)'}}>feat(tabs): lg size</span>}<div style={{flex:1}}/><code style={{fontFamily:'var(--font-mono)',fontSize:12,color:'var(--accent-ink)'}}>a83f2c1</code><span style={{color:'var(--fg-3)'}}>5h</span><Badge tone="success" dot>Passing</Badge></div>
+            {gitFiles.map(([k,n,mm,d])=><div key={n} style={{display:'grid',gridTemplateColumns:m?'20px minmax(0,1fr) auto':'24px 200px minmax(0,1fr) 110px',gap:12,alignItems:'center',padding:'11px 16px',borderTop:'1px solid var(--line)',fontSize:14}}>
+              <Icon name={k} size={16} color={k==='folder'?'var(--accent-2)':'var(--fg-3)'}/><span style={{fontWeight:500}}>{n}</span>{!m&&<span style={{color:'var(--fg-2)',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{mm}</span>}<span style={{color:'var(--fg-3)',textAlign:'right',fontSize:13}}>{d}</span></div>)}
           </div>
           <div style={{border:'1px solid var(--line)',marginTop:24}}>
             <div style={{padding:'12px 16px',borderBottom:'1px solid var(--line)',display:'flex',alignItems:'center',gap:8}}><Icon name="book-open" size={16}/><Overline style={{color:'var(--fg-1)'}}>README.md</Overline></div>
-            <div style={{padding:'28px 32px'}}><Display size={40} as="h3">Hanami UI</Display><p style={{color:'var(--fg-2)',lineHeight:1.7}}>Sharp components on calm surfaces. Every token is themeable across Sakura, Wine and Rust.</p>
+            <div style={{padding:m?'20px 16px':'28px 32px'}}><Display size={40} as="h3">Hanami UI</Display><p style={{color:'var(--fg-2)',lineHeight:1.7}}>Sharp components on calm surfaces. Every token is themeable across Sakura, Wine and Rust.</p>
               <CodeBlock language="sh" code={'pnpm add @kerasi/hanami'} lineNumbers={false} style={{marginBottom:16}}/><CodeBlock language="tsx" title="app.tsx" code={"import { Button } from '@kerasi/hanami';\n\nexport default function App() {\n  return <Button variant=\"primary\">Bloom</Button>;\n}"}/></div>
           </div>
         </>}
@@ -57,7 +57,7 @@ function GitScreen(){
         <div><Overline style={{marginBottom:12}}>Latest release</Overline><div style={{display:'flex',alignItems:'center',gap:8}}><Icon name="tag" size={16}/><b>v2.4.0</b><Badge tone="solid">Latest</Badge></div></div>
       </aside>
     </div>
-    {toast&&<div style={{position:'fixed',right:24,bottom:24,zIndex:60}}><Toast tone="success" title="Copied">git@kerasi.studio:hanami-ui.git</Toast></div>}
+    {toast&&<div style={{position:'fixed',right:m?12:24,left:m?12:'auto',bottom:m?12:24,zIndex:60}}><Toast tone="success" title="Copied">git@kerasi.studio:hanami-ui.git</Toast></div>}
   </div>;
 }
 window.GitScreen=GitScreen;
