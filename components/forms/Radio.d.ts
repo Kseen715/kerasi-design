@@ -1,4 +1,4 @@
-/** Radio group. The filled dot echoes the sun in the mark. */
+/** Radio group. The filled dot echoes the sun in the mark. One Tab stop; arrow keys move the choice. */
 export interface RadioProps{
   options?:(string|{value:string;label:string})[];
   value?:string;

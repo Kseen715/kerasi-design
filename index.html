@@ -153,8 +153,9 @@ const SIZES = {
 const $ = id => document.getElementById(id);
 const store = {get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
 
-let theme = new URLSearchParams(location.search).get('theme') || store.get('kerasi-gallery-theme') || 'sakura';
-if (!THEMES.some(t => t[0] === theme)) theme = 'sakura';
+const SYSTEM_THEME = matchMedia('(prefers-color-scheme: dark)').matches ? 'sakura-dark' : 'sakura';
+let theme = new URLSearchParams(location.search).get('theme') || store.get('kerasi-gallery-theme') || SYSTEM_THEME;
+if (!THEMES.some(t => t[0] === theme)) theme = SYSTEM_THEME;
 let items = [], byPath = new Map();
 
 // How a page takes the theme: templates through the dc runtime props, the

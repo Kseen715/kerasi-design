@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"KerasiDesignSystem_6c0512","components":[{"name":"CodeBlock","sourcePath":"components/code/CodeBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"SUBPROJECT_COLORS","sourcePath":"components/core/Favicon.jsx"},{"name":"Favicon","sourcePath":"components/core/Favicon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Mark","sourcePath":"components/core/Logo.jsx"},{"name":"Logo","sourcePath":"components/core/Logo.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Dialog","sourcePath":"components/feedback/Dialog.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Tooltip","sourcePath":"components/feedback/Tooltip.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/code/CodeBlock.jsx":"c3a51b3e40cc","components/code/samples.js":"89337ac22d4d","components/core/Badge.jsx":"78a2f1b4ba66","components/core/Button.jsx":"d87ac4e65b35","components/core/Card.jsx":"bd736b4ea693","components/core/Favicon.jsx":"02e46d820505","components/core/Icon.jsx":"7a1590261680","components/core/IconButton.jsx":"cfff08c97bc1","components/core/Logo.jsx":"c0c81959e98a","components/core/Tag.jsx":"d53558961ad7","components/feedback/Dialog.jsx":"6982119b3f1f","components/feedback/Toast.jsx":"499a3fb76675","components/feedback/Tooltip.jsx":"b8070ee5ecb3","components/forms/Checkbox.jsx":"b66c4eda1f52","components/forms/Input.jsx":"89e0e1094366","components/forms/Radio.jsx":"f50895f95e8e","components/forms/Select.jsx":"8f9872b12be5","components/forms/Switch.jsx":"24050ec8d1c9","components/navigation/Tabs.jsx":"71b1cf847b4e","ui_kits/kerasi/App.jsx":"f9844ca48696","ui_kits/kerasi/Blog.jsx":"9c7c716c0afe","ui_kits/kerasi/Charts.jsx":"c4867f40d76e","ui_kits/kerasi/Dashboard.jsx":"95941fbb78dc","ui_kits/kerasi/Diagrams.jsx":"bbadfa377b36","ui_kits/kerasi/Elements.jsx":"4ba2de58d6da","ui_kits/kerasi/Gallery.jsx":"0696f6ddadfe","ui_kits/kerasi/Git.jsx":"a1624f465d9b","ui_kits/kerasi/Home.jsx":"af133aa6eeb5","ui_kits/kerasi/Kit.jsx":"774b4faab111"},"inlinedExternals":[],"unexposedExports":[{"name":"highlight","sourcePath":"components/code/CodeBlock.jsx"}]} */
+/* @ds-bundle: {"format":4,"namespace":"KerasiDesignSystem_6c0512","components":[{"name":"CodeBlock","sourcePath":"components/code/CodeBlock.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Card","sourcePath":"components/core/Card.jsx"},{"name":"SUBPROJECT_COLORS","sourcePath":"components/core/Favicon.jsx"},{"name":"Favicon","sourcePath":"components/core/Favicon.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"IconButton","sourcePath":"components/core/IconButton.jsx"},{"name":"Mark","sourcePath":"components/core/Logo.jsx"},{"name":"Logo","sourcePath":"components/core/Logo.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Dialog","sourcePath":"components/feedback/Dialog.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Tooltip","sourcePath":"components/feedback/Tooltip.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Radio","sourcePath":"components/forms/Radio.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"}],"sourceHashes":{"components/code/CodeBlock.jsx":"c3a51b3e40cc","components/code/samples.js":"89337ac22d4d","components/core/Badge.jsx":"78a2f1b4ba66","components/core/Button.jsx":"d87ac4e65b35","components/core/Card.jsx":"bd736b4ea693","components/core/Favicon.jsx":"02e46d820505","components/core/Icon.jsx":"7a1590261680","components/core/IconButton.jsx":"cfff08c97bc1","components/core/Logo.jsx":"c0c81959e98a","components/core/Tag.jsx":"d53558961ad7","components/feedback/Dialog.jsx":"6982119b3f1f","components/feedback/Toast.jsx":"499a3fb76675","components/feedback/Tooltip.jsx":"b8070ee5ecb3","components/forms/Checkbox.jsx":"7013aca6117f","components/forms/Input.jsx":"89e0e1094366","components/forms/Radio.jsx":"272eaabd3535","components/forms/Select.jsx":"8f9872b12be5","components/forms/Switch.jsx":"988d2289e1ac","components/navigation/Tabs.jsx":"71b1cf847b4e","ui_kits/kerasi/App.jsx":"fcbc5530a080","ui_kits/kerasi/Blog.jsx":"9c7c716c0afe","ui_kits/kerasi/Charts.jsx":"c4867f40d76e","ui_kits/kerasi/Dashboard.jsx":"95941fbb78dc","ui_kits/kerasi/Diagrams.jsx":"bbadfa377b36","ui_kits/kerasi/Elements.jsx":"4ba2de58d6da","ui_kits/kerasi/Gallery.jsx":"0696f6ddadfe","ui_kits/kerasi/Git.jsx":"a1624f465d9b","ui_kits/kerasi/Home.jsx":"af133aa6eeb5","ui_kits/kerasi/Kit.jsx":"774b4faab111"},"inlinedExternals":[],"unexposedExports":[{"name":"highlight","sourcePath":"components/code/CodeBlock.jsx"}]} */
 
 (() => {
 
@@ -1429,6 +1429,7 @@ Object.assign(__ds_scope, { Tooltip });
 
 // components/forms/Checkbox.jsx
 try { (() => {
+// A real <button>, so Tab reaches it, Space toggles it and the global :focus-visible ring shows.
 function Checkbox({
   checked,
   defaultChecked,
@@ -1440,16 +1441,25 @@ function Checkbox({
   const [inner, setInner] = React.useState(!!defaultChecked);
   const on = checked !== undefined ? checked : inner;
   const toggle = () => {
-    if (disabled) return;
     setInner(!on);
     onChange && onChange(!on);
   };
-  return /*#__PURE__*/React.createElement("label", {
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "checkbox",
+    "aria-checked": on,
+    disabled: disabled,
     onClick: toggle,
     style: {
       display: 'inline-flex',
       alignItems: 'center',
       gap: 10,
+      margin: 0,
+      padding: 0,
+      background: 'none',
+      border: 'none',
+      font: 'inherit',
+      textAlign: 'left',
       cursor: disabled ? 'not-allowed' : 'pointer',
       opacity: disabled ? .45 : 1,
       fontSize: 15,
@@ -1457,8 +1467,7 @@ function Checkbox({
       ...style
     }
   }, /*#__PURE__*/React.createElement("span", {
-    role: "checkbox",
-    "aria-checked": on,
+    "aria-hidden": "true",
     style: {
       width: 18,
       height: 18,
@@ -1568,6 +1577,14 @@ Object.assign(__ds_scope, { Input });
 
 // components/forms/Radio.jsx
 try { (() => {
+const STEP = {
+  ArrowRight: 1,
+  ArrowDown: 1,
+  ArrowLeft: -1,
+  ArrowUp: -1
+};
+// Keyboard works like a native radio group: Tab stops once, on the checked option (or the first),
+// and the arrow keys move both the choice and the focus, wrapping at the ends.
 function Radio({
   options = [],
   value,
@@ -1579,7 +1596,22 @@ function Radio({
 }) {
   const [inner, setInner] = React.useState(defaultValue);
   const cur = value !== undefined ? value : inner;
+  const group = React.useRef(null);
+  const vals = options.map(o => typeof o === 'string' ? o : o.value);
+  const pick = v => {
+    setInner(v);
+    onChange && onChange(v);
+  };
+  const key = (e, i) => {
+    const s = STEP[e.key];
+    if (!s) return;
+    e.preventDefault();
+    const n = (i + s + vals.length) % vals.length;
+    pick(vals[n]);
+    group.current.querySelectorAll('[role="radio"]')[n].focus();
+  };
   return /*#__PURE__*/React.createElement("div", {
+    ref: group,
     role: "radiogroup",
     style: {
       display: 'flex',
@@ -1587,30 +1619,39 @@ function Radio({
       gap: direction === 'row' ? 20 : 10,
       ...style
     }
-  }, options.map(o => {
-    const v = typeof o === 'string' ? o : o.value,
+  }, options.map((o, i) => {
+    const v = vals[i],
       l = typeof o === 'string' ? o : o.label,
-      on = cur === v;
-    return /*#__PURE__*/React.createElement("label", {
+      on = cur === v,
+      stop = on || i === 0 && !vals.includes(cur);
+    return /*#__PURE__*/React.createElement("button", {
       key: v,
-      onClick: () => {
-        setInner(v);
-        onChange && onChange(v);
-      },
+      type: "button",
+      role: "radio",
+      "aria-checked": on,
+      tabIndex: stop ? 0 : -1,
+      onClick: () => pick(v),
+      onKeyDown: e => key(e, i),
       style: {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 10,
+        margin: 0,
+        padding: 0,
+        background: 'none',
+        border: 'none',
+        font: 'inherit',
+        textAlign: 'left',
         cursor: 'pointer',
         fontSize: 15,
         color: 'var(--fg-1)'
       }
     }, /*#__PURE__*/React.createElement("span", {
-      role: "radio",
-      "aria-checked": on,
+      "aria-hidden": "true",
       style: {
         width: 18,
         height: 18,
+        flex: 'none',
         borderRadius: '50%',
         border: '1px solid ' + (on ? 'var(--accent)' : 'var(--line-strong)'),
         background: 'var(--bg-raised)',
@@ -1718,6 +1759,7 @@ Object.assign(__ds_scope, { Select });
 
 // components/forms/Switch.jsx
 try { (() => {
+// A real <button>, so Tab reaches it, Space toggles it and the global :focus-visible ring shows.
 function Switch({
   checked,
   defaultChecked,
@@ -1729,16 +1771,25 @@ function Switch({
   const [inner, setInner] = React.useState(!!defaultChecked);
   const on = checked !== undefined ? checked : inner;
   const t = () => {
-    if (disabled) return;
     setInner(!on);
     onChange && onChange(!on);
   };
-  return /*#__PURE__*/React.createElement("label", {
+  return /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "switch",
+    "aria-checked": on,
+    disabled: disabled,
     onClick: t,
     style: {
       display: 'inline-flex',
       alignItems: 'center',
       gap: 10,
+      margin: 0,
+      padding: 0,
+      background: 'none',
+      border: 'none',
+      font: 'inherit',
+      textAlign: 'left',
       cursor: disabled ? 'not-allowed' : 'pointer',
       opacity: disabled ? .45 : 1,
       fontSize: 15,
@@ -1746,8 +1797,7 @@ function Switch({
       ...style
     }
   }, /*#__PURE__*/React.createElement("span", {
-    role: "switch",
-    "aria-checked": on,
+    "aria-hidden": "true",
     style: {
       width: 38,
       height: 20,
@@ -1882,7 +1932,7 @@ function App() {
   const saved = JSON.parse(localStorage.getItem('kerasi-kit') || '{}');
   const q = new URLSearchParams(location.search);
   const forced = window.KERASI_ROUTE;
-  const [theme, setTheme] = React.useState(q.get('theme') || saved.theme || 'sakura');
+  const [theme, setTheme] = React.useState(q.get('theme') || saved.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'sakura-dark' : 'sakura'));
   const [route, setRoute] = React.useState(forced || q.get('route') || saved.route || 'home');
   const [slug, setSlug] = React.useState(null);
   const [menu, setMenu] = React.useState(false);

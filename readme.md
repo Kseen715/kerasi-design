@@ -30,7 +30,7 @@
 Intentional additions: **Logo/Mark** (brand lockup drawn inline so it needs no asset path) **Icon** (wrapper for the Lucide CDN set) and **Favicon** (main + subproject tab glyphs).
 
 ## Themes
-Default `:root` is Sakura light. Set `data-theme` on `<html>` or any container:
+Default `:root` (no `data-theme`) is Sakura, light or dark after the system `prefers-color-scheme`. Set `data-theme` on `<html>` or any container:
 `sakura` · `sakura-dark` · `wine` · `wine-dark` · `rust` · `rust-dark`.
 Components only read semantic tokens (`--bg`, `--bg-raised`, `--bg-sunken`, `--fg-1..3`, `--line`, `--line-strong`, `--accent`, `--accent-hover`, `--accent-fg`, `--accent-soft`, `--accent-ink`, `--accent-2`, `--accent-3`, `--highlight`, `--chart-1..5`), so every theme works everywhere. Use `--accent-ink` for accent-coloured *text*; `--accent` for fills.
 

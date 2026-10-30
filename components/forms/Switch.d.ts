@@ -1,4 +1,4 @@
-/** Rectangular on/off switch with a square knob. onChange receives the new boolean. */
+/** Rectangular on/off switch with a square knob, reachable by Tab and toggled with Space. onChange receives the new boolean. */
 export interface SwitchProps{
   checked?:boolean;
   defaultChecked?:boolean;

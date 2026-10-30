@@ -1,4 +1,4 @@
-/** Square checkbox; controlled (checked) or uncontrolled (defaultChecked). onChange receives the new boolean. */
+/** Square checkbox, reachable by Tab and toggled with Space; controlled (checked) or uncontrolled (defaultChecked). onChange receives the new boolean. */
 export interface CheckboxProps{
   checked?:boolean;
   defaultChecked?:boolean;

@@ -1,10 +1,14 @@
-/* Semantic theme tokens. Default (:root) = Sakura light. Switch with data-theme on <html> or any container. */
+/* Semantic theme tokens. Default (:root, no data-theme) = Sakura, light or dark after the system setting. Switch with data-theme on <html> or any container. */
 :root,[data-theme="sakura"]{
 --bg:#F9F0EC;--bg-raised:#FFFAF8;--bg-sunken:#F3E4DE;--fg-1:#2A1712;--fg-2:#5E4038;--fg-3:#8C6E64;--line:#E8D6CF;--line-strong:#C9AFA5;--accent:#AC2937;--accent-hover:#8A1F2B;--accent-fg:#FFF6F2;--accent-soft:#F7D9DE;--accent-ink:#AC2937;--accent-2:#925644;--accent-2-fg:#FFF6F2;--accent-3:#EFBCC5;--highlight:#ECC483;--chart-1:#AC2937;--chart-2:#E3909E;--chart-3:#925644;--chart-4:#ECC483;--chart-5:#412017;
 }
 [data-theme="sakura-dark"]{
 --bg:#171514;--bg-raised:#201D1B;--bg-sunken:#121110;--fg-1:#F2ECE8;--fg-2:#C9BDB7;--fg-3:#8F837D;--line:#302B28;--line-strong:#4A433F;--accent:#F58AA0;--accent-hover:#FFA3B6;--accent-fg:#1E1A18;--accent-soft:#3D2329;--accent-ink:#FF9CB0;--accent-2:#C48C72;--accent-2-fg:#171514;--accent-3:#B8505C;--highlight:#ECC483;--chart-1:#F58AA0;--chart-2:#C9606C;--chart-3:#C48C72;--chart-4:#ECC483;--chart-5:#F2ECE8;
 }
+/* No data-theme: follow the system, with Sakura. Same values as sakura-dark. */
+@media (prefers-color-scheme:dark){:root:not([data-theme]){
+--bg:#171514;--bg-raised:#201D1B;--bg-sunken:#121110;--fg-1:#F2ECE8;--fg-2:#C9BDB7;--fg-3:#8F837D;--line:#302B28;--line-strong:#4A433F;--accent:#F58AA0;--accent-hover:#FFA3B6;--accent-fg:#1E1A18;--accent-soft:#3D2329;--accent-ink:#FF9CB0;--accent-2:#C48C72;--accent-2-fg:#171514;--accent-3:#B8505C;--highlight:#ECC483;--chart-1:#F58AA0;--chart-2:#C9606C;--chart-3:#C48C72;--chart-4:#ECC483;--chart-5:#F2ECE8;
+}}
 [data-theme="wine"]{
 --bg:#F4EFE6;--bg-raised:#FBF8F2;--bg-sunken:#EAE2D3;--fg-1:#191716;--fg-2:#4A4240;--fg-3:#7A706B;--line:#DDD3C2;--line-strong:#BBAA8E;--accent:#773344;--accent-hover:#5A2433;--accent-fg:#F4EFE6;--accent-soft:#EBD9DD;--accent-ink:#773344;--accent-2:#C2A878;--accent-2-fg:#191716;--accent-3:#191716;--highlight:#C2A878;--chart-1:#773344;--chart-2:#C2A878;--chart-3:#191716;--chart-4:#A86A7A;--chart-5:#DCCBA6;
 }

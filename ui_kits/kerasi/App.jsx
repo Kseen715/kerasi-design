@@ -4,7 +4,7 @@ function App(){
   const saved=JSON.parse(localStorage.getItem('kerasi-kit')||'{}');
   const q=new URLSearchParams(location.search);
   const forced=window.KERASI_ROUTE;
-  const [theme,setTheme]=React.useState(q.get('theme')||saved.theme||'sakura');
+  const [theme,setTheme]=React.useState(q.get('theme')||saved.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'sakura-dark':'sakura'));
   const [route,setRoute]=React.useState(forced||q.get('route')||saved.route||'home');
   const [slug,setSlug]=React.useState(null);const [menu,setMenu]=React.useState(false);const bp=useBp();const embed=q.has('route');
   React.useEffect(()=>{document.documentElement.setAttribute('data-theme',theme);if(!forced&&!embed)localStorage.setItem('kerasi-kit',JSON.stringify({theme,route}));},[theme,route]);
